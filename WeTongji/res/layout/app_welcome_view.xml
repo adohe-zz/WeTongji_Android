@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    
+    <!-- app_welcome_bg -->
+
+    <LinearLayout android:orientation="vertical" 
+        android:id="@+id/welcome_layout_welcome" 
+        android:visibility="visible" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent">
+        
+        <LinearLayout android:orientation="vertical" 
+            android:background="@drawable/app_welcome_view"
+            android:layout_width="fill_parent" 
+            android:layout_height="0dp" 
+            android:layout_weight="1.0">
+        </LinearLayout>
+        
+        <LinearLayout android:gravity="center_horizontal"
+             android:orientation="vertical" 
+             android:background="#ff555555" 
+             android:layout_width="fill_parent" 
+             android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="20.0dip" 
+                android:layout_marginBottom="10.0dip">
+                
+                <!--  
+                <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_index_totaluser" />
+                <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:layout_gravity="bottom" android:id="@id/welcome_tv_usercount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:text="000000" />
+                -->
+                <TextView android:textSize="13.0sp" 
+                    android:textStyle="bold" 
+                    android:textColor="#ffffffff" 
+                    android:layout_gravity="bottom" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:text="微同济_Android_0.01" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" 
+                android:orientation="horizontal" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:layout_marginBottom="20.0dip">
+                <ImageButton android:id="@id/btn_register" 
+                    android:background="@drawable/btn_welcome_register" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginRight="7.0dip" />
+                <ImageButton 
+                    android:id="@id/btn_login" 
+                    android:background="@drawable/btn_welcome_login" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginLeft="7.0dip" />
+                
+                <!--  about button
+                <ImageButton android:layout_gravity="top" 
+                    android:id="@id/btn_about" 
+                    android:background="@drawable/index_about" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginLeft="10.0dip" 
+                    android:layout_marginBottom="20.0dip" 
+                    android:scaleType="centerInside" />
+               -->
+               
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    
+    <!-- 这里放置开始画面 -->
+
+</RelativeLayout>
