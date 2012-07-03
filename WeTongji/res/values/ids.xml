@@ -3,5 +3,11 @@
     <item name="btn_register" type="id">false</item>
     <item name="btn_login" type="id">false</item>
     <item name="btn_about" type="id">false</item>
+    <item name="img_pagertitle_personal" type="id">false</item>
+    <item name="img_pagetitle_dashbord" type="id">false</item>
+    <item name="img_pagertitle_schedule" type="id">false</item>
+    <item name="img_main_viewpager_cursor" type="id">false</item>
+    <item name="layout_main_viewpager_frame" type="id">false</item>
+    <item name="widget_main_viewpager" type="id">false</item>
     
 </resources>
