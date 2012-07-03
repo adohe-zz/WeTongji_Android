@@ -1,0 +1,231 @@
+#
+# generated on 2012/07/03 09:42:35
+#
+# --table-start--
+dataClass=com.wetongji.data.Activity
+tableName=activity
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=begin
+# --field-end--
+# --field-start--
+fieldName=end
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=location
+# --field-end--
+# --field-start--
+fieldName=favourite
+# --field-end--
+# --field-start--
+fieldName=like
+# --field-end--
+# --field-start--
+fieldName=schedule
+# --field-end--
+# --field-start--
+fieldName=canFavourite
+# --field-end--
+# --field-start--
+fieldName=canLike
+# --field-end--
+# --field-start--
+fieldName=canSchedule
+# --field-end--
+# --field-start--
+fieldName=channel_id
+# --field-end--
+# --field-start--
+fieldName=organizer
+# --field-end--
+# --field-start--
+fieldName=status
+# --field-end--
+# --field-start--
+fieldName=description
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.wetongji.data.Channel
+tableName=channel
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=image
+# --field-end--
+# --field-start--
+fieldName=follow
+# --field-end--
+# --field-start--
+fieldName=description
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.wetongji.data.Course
+tableName=course
+# --table-fields-start--
+# --field-start--
+fieldName=no
+id=true
+# --field-end--
+# --field-start--
+fieldName=hours
+# --field-end--
+# --field-start--
+fieldName=point
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=teacher
+# --field-end--
+# --field-start--
+fieldName=weekType
+# --field-end--
+# --field-start--
+fieldName=weekDay
+# --field-end--
+# --field-start--
+fieldName=sectionStart
+# --field-end--
+# --field-start--
+fieldName=sectionEnd
+# --field-end--
+# --field-start--
+fieldName=required
+# --field-end--
+# --field-start--
+fieldName=location
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.wetongji.data.Event
+tableName=event
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=begin
+# --field-end--
+# --field-start--
+fieldName=end
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=location
+# --field-end--
+# --field-start--
+fieldName=description
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.wetongji.data.News
+tableName=news
+# --table-fields-start--
+# --field-start--
+fieldName=id
+id=true
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=context
+# --field-end--
+# --field-start--
+fieldName=read
+# --field-end--
+# --field-start--
+fieldName=category
+# --field-end--
+# --field-start--
+fieldName=createdAt
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.wetongji.data.User
+tableName=user
+# --table-fields-start--
+# --field-start--
+fieldName=no
+id=true
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=avatar
+# --field-end--
+# --field-start--
+fieldName=uid
+# --field-end--
+# --field-start--
+fieldName=phone
+# --field-end--
+# --field-start--
+fieldName=displayName
+# --field-end--
+# --field-start--
+fieldName=major
+# --field-end--
+# --field-start--
+fieldName=nativePlace
+# --field-end--
+# --field-start--
+fieldName=degree
+# --field-end--
+# --field-start--
+fieldName=gender
+# --field-end--
+# --field-start--
+fieldName=year
+# --field-end--
+# --field-start--
+fieldName=birthday
+# --field-end--
+# --field-start--
+fieldName=plan
+# --field-end--
+# --field-start--
+fieldName=sinaWeibo
+# --field-end--
+# --field-start--
+fieldName=qq
+# --field-end--
+# --field-start--
+fieldName=department
+# --field-end--
+# --field-start--
+fieldName=email
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
