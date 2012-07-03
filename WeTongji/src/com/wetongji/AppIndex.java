@@ -1,5 +1,7 @@
 package com.wetongji;
 
+import com.wetongji.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 
