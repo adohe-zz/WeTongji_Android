@@ -3,5 +3,8 @@
 
     <string name="hello">Hello World, WeTongjiActivity!</string>
     <string name="app_name">WeTongji</string>
+    <string name="page_dashboard">功能</string>
+    <string name="page_setting">设置</string>
+    <string name="page_personal">个人</string>
 
 </resources>

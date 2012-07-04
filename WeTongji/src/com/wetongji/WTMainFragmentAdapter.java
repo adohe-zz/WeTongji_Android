@@ -1,5 +1,8 @@
 package com.wetongji;
 
+import com.wetongji.R.string;
+
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter ;
@@ -11,8 +14,11 @@ public class WTMainFragmentAdapter extends FragmentPagerAdapter {
     static final int POS_DASHBORD = 1;
     static final int POS_SETTING = 2;
     
-    public WTMainFragmentAdapter(FragmentManager fm) {
-        super(fm);
+    Resources resources;
+    
+    public WTMainFragmentAdapter(Resources resources, FragmentManager fm) {
+        super(fm);   
+        this.resources = resources;
     }
 
     @Override
@@ -36,6 +42,20 @@ public class WTMainFragmentAdapter extends FragmentPagerAdapter {
     public int getCount() {
         // TODO Auto-generated method stub
         return NUM_PAGES;
+    }
+    
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position) {
+        case 0:
+            return resources.getString(string.page_personal);
+        case 1:
+            return resources.getString(string.page_dashboard);
+        case 2:
+            return resources.getString(string.page_setting);
+        default:
+            return null;
+        }
     }
 
     

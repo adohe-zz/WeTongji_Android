@@ -9,5 +9,6 @@
     <item name="img_main_viewpager_cursor" type="id">false</item>
     <item name="layout_main_viewpager_frame" type="id">false</item>
     <item name="widget_main_viewpager" type="id">false</item>
+    <item type="id" name="widget_viewpager_header">false</item>
     
 </resources>
