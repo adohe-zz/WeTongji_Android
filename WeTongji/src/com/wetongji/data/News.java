@@ -24,7 +24,27 @@ public class News {
 	/**
 	 * 
 	 */
-	News() {
+	public News() {
+	}
+
+
+
+	/**
+	 * @param id
+	 * @param title
+	 * @param context
+	 * @param read
+	 * @param category
+	 * @param createdAt
+	 */
+	public News(int id, String title, String context, int read, String category,
+			Date createdAt) {
+		this.id = id;
+		this.title = title;
+		this.context = context;
+		this.read = read;
+		this.category = category;
+		this.createdAt = createdAt;
 	}
 	
 }

@@ -44,7 +44,52 @@ public class User {
 	/**
 	 * 
 	 */
-	User() {
+	public User() {
+	}
+
+
+
+	/**
+	 * @param no
+	 * @param name
+	 * @param avatar
+	 * @param uid
+	 * @param phone
+	 * @param displayName
+	 * @param major
+	 * @param nativePlace
+	 * @param degree
+	 * @param gender
+	 * @param year
+	 * @param birthday
+	 * @param plan
+	 * @param sinaWeibo
+	 * @param qq
+	 * @param department
+	 * @param email
+	 */
+	public User(String no, String name, String avatar, String uid, String phone,
+			String displayName, String major, String nativePlace,
+			String degree, String gender, String year, String birthday,
+			String plan, String sinaWeibo, String qq, String department,
+			String email) {
+		this.no = no;
+		this.name = name;
+		this.avatar = avatar;
+		this.uid = uid;
+		this.phone = phone;
+		this.displayName = displayName;
+		this.major = major;
+		this.nativePlace = nativePlace;
+		this.degree = degree;
+		this.gender = gender;
+		this.year = year;
+		this.birthday = birthday;
+		this.plan = plan;
+		this.sinaWeibo = sinaWeibo;
+		this.qq = qq;
+		this.department = department;
+		this.email = email;
 	}
 
 }

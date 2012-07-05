@@ -24,7 +24,27 @@ public class Event {
 	/**
 	 * 
 	 */
-	Event() {
+	public Event() {
+	}
+
+
+
+	/**
+	 * @param id
+	 * @param begin
+	 * @param end
+	 * @param title
+	 * @param location
+	 * @param description
+	 */
+	public Event(int id, Date begin, Date end, String title, String location,
+			String description) {
+		this.id = id;
+		this.begin = begin;
+		this.end = end;
+		this.title = title;
+		this.location = location;
+		this.description = description;
 	}
 	
 }
