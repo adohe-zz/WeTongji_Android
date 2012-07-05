@@ -42,7 +42,47 @@ public class Activity {
 	/**
 	 * 
 	 */
-	Activity() {
+	public Activity() {
+	}
+
+
+
+	/**
+	 * @param id
+	 * @param begin
+	 * @param end
+	 * @param title
+	 * @param location
+	 * @param favourite
+	 * @param like
+	 * @param schedule
+	 * @param canFavourite
+	 * @param canLike
+	 * @param canSchedule
+	 * @param channel_id
+	 * @param organizer
+	 * @param status
+	 * @param description
+	 */
+	public Activity(int id, Date begin, Date end, String title, String location,
+			int favourite, int like, int schedule, boolean canFavourite,
+			boolean canLike, boolean canSchedule, int channel_id,
+			String organizer, String status, String description) {
+		this.id = id;
+		this.begin = begin;
+		this.end = end;
+		this.title = title;
+		this.location = location;
+		this.favourite = favourite;
+		this.like = like;
+		this.schedule = schedule;
+		this.canFavourite = canFavourite;
+		this.canLike = canLike;
+		this.canSchedule = canSchedule;
+		this.channel_id = channel_id;
+		this.organizer = organizer;
+		this.status = status;
+		this.description = description;
 	}
 	
 }
