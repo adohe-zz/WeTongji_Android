@@ -28,7 +28,7 @@ public class AppIndex extends Activity implements OnClickListener{
         switch(v.getId()) {
         case R.id.btn_login:
             Intent intent = 
-                new Intent(getApplicationContext(), ActivityMainViewpager.class);
+                new Intent(getApplicationContext(), ActivityLogin.class);
             startActivity(intent);
             break;
         }

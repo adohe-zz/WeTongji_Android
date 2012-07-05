@@ -20,7 +20,24 @@ public class Channel {
 	/**
 	 * 
 	 */
-	Channel() {
+	public Channel() {
+	}
+
+
+
+	/**
+	 * @param id
+	 * @param title
+	 * @param image
+	 * @param follow
+	 * @param description
+	 */
+	public Channel(int id, String title, String image, int follow, String description) {
+		this.id = id;
+		this.title = title;
+		this.image = image;
+		this.follow = follow;
+		this.description = description;
 	}
 	
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2012 GitHub Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~  http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
+<resources>
+
+    <color name="background">#3B3B3B</color>
+    <color name="text">#FCFCFC</color>
+    <color name="text_light">#999999</color>
+    <color name="text_inverted">#FFFFFF</color>
+    <color name="text_title">#DFDFDF</color>
+    <color name="pager_footer">#18A05D</color>
+    <color name="pager_selected_text">#FFFFFF</color>
+    <color name="pager_background">#F4F4F4</color>
+    <color name="pager_background_alternate">#E7E7E7</color>
+    <color name="text_link">#20A465</color>
+    <color name="table_text">#484848</color>
+    <color name="table_text_inverted">#FFFFFF</color>
+    <color name="table_text_light">#A6A6A6</color>
+    <color name="table_text_header">#636363</color>
+    <color name="gauge_background_start">#373737</color>
+    <color name="gauge_background_end">#272727</color>
+    <color name="header_background_start">#ECECEC</color>
+    <color name="header_background_end">#C3C3C3</color>
+    <color name="header_background_top">#F9F9F9</color>
+    <color name="header_background_bottom">#A7A7A7</color>
+    <color name="actionbar_background_start">#272727</color>
+    <color name="actionbar_background_end">#1A1A1A</color>
+    <color name="gauge_divider_top">#000000</color>
+    <color name="gauge_divider_bottom">#5A5A5A</color>
+    <color name="main_background_start">#2E2E2E</color>
+    <color name="main_background_end">#2C2C2C</color>
+    <color name="button_background_enabled_start">#20a465</color>
+    <color name="button_background_enabled_end">#1d7d4f</color>
+    <color name="edit_text_background_start">#EFF6FF</color>
+    <color name="edit_text_background_end">#FBFDFF</color>
+    <color name="button_background_disabled_start">#7b7b7b</color>
+    <color name="button_background_disabled_end">#646464</color>
+    <color name="text_shadow">#000000</color>
+	<color name="text_color">#ff434343</color>
+</resources>
