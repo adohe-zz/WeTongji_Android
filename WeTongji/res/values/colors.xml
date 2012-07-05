@@ -49,5 +49,5 @@
     <color name="button_background_disabled_start">#7b7b7b</color>
     <color name="button_background_disabled_end">#646464</color>
     <color name="text_shadow">#000000</color>
-
+	<color name="text_color">#ff434343</color>
 </resources>

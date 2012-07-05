@@ -8,8 +8,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter ;
 
 public class WTMainFragmentAdapter extends FragmentPagerAdapter {
-    
+    // Ò³Êý
     static final int NUM_PAGES = 3;
+    
+    // Î»ÖÃ
     static final int POS_PERSONAL = 0;
     static final int POS_DASHBORD = 1;
     static final int POS_SETTING = 2;
@@ -27,13 +29,13 @@ public class WTMainFragmentAdapter extends FragmentPagerAdapter {
         
         switch(position) {
         case POS_PERSONAL:
-            return WTDashbordFragment.newInstance(R.layout.lay1);
+            return WTSheduleFragment.newInstance(R.layout.lay1);
         case POS_DASHBORD:
-            return WTDashbordFragment.newInstance(R.layout.lay2);
+            return WTDashboardFragment.newInstance(R.layout.app_square_fragment);
         case POS_SETTING:
-            return WTDashbordFragment.newInstance(R.layout.lay3);
+            return WTSheduleFragment.newInstance(R.layout.lay3);
         default:
-            return WTDashbordFragment.newInstance(R.layout.lay1);
+            return WTSheduleFragment.newInstance(R.layout.lay2);
         } 
         
     }
@@ -48,7 +50,7 @@ public class WTMainFragmentAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
         case 0:
-            return resources.getString(string.page_personal);
+            return resources.getString(string.page_alert);
         case 1:
             return resources.getString(string.page_dashboard);
         case 2:

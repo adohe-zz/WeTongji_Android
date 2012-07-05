@@ -10,5 +10,13 @@
     <item name="layout_main_viewpager_frame" type="id">false</item>
     <item name="widget_main_viewpager" type="id">false</item>
     <item type="id" name="widget_viewpager_header">false</item>
+    <item name="img_square_grid_item" type="id">false</item>
+    <item name="widget_square_gridview" type="id">false</item>
+    <item name="layout_content" type="id">false</item>
+    <item name="login_et_username" type="id">false</item>
+    <item name="login_et_pwd" type="id">false</item>
+    <item name="login_tv_forgotpassword" type="id">false</item>
+    <item name="btn_back" type="id">false</item>
+    <item name="btn_ok" type="id">false</item>
     
 </resources>

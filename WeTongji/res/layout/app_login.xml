@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:color/white" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <LinearLayout android:orientation="vertical" 
+        android:id="@id/layout_content" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_alignParentTop="true" >
+        <ScrollView android:scrollbars="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" 
+                android:paddingLeft="10.0dip" 
+                android:paddingTop="15.0dip" 
+                android:paddingRight="10.0dip" 
+                android:layout_width="fill_parent" 
+                android:layout_height="fill_parent">
+                <EditText android:id="@id/login_et_username" 
+                    android:background="@drawable/edittext_default" 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginBottom="8.0dip" 
+                    android:hint="@string/login_hit_username" 
+                    android:singleLine="true" 
+                    android:inputType="text" />
+                <EditText android:id="@id/login_et_pwd" 
+                    android:background="@drawable/edittext_default" 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginBottom="8.0dip" 
+                    android:hint="@string/login_hit_password" 
+                    android:singleLine="true" 
+                    android:inputType="textPassword" 
+                    android:imeOptions="actionDone" />
+                <TextView android:textSize="16.0sp" 
+                    android:id="@id/login_tv_forgotpassword" 
+                    android:clickable="true" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:text="@string/forgetpassword" />
+            </LinearLayout>
+        </ScrollView>
+        <RelativeLayout style="@style/Style_BottomBar">
+            <Button android:id="@id/btn_back" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:text="@string/back" 
+                android:layout_alignParentLeft="true" 
+                style="@style/Style_Login_register_btn" />
+            <Button android:id="@id/btn_ok" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content"
+                android:text="@string/login" 
+                android:layout_alignParentRight="true" 
+                style="@style/Style_Login_register_btn" />
+        </RelativeLayout>
+    </LinearLayout>
+    
+</RelativeLayout>
