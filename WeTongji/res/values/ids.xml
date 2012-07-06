@@ -21,5 +21,11 @@
     <item type="id" name="widget_rg_viewflipper">false</item>
     <item type="id" name="divider_line">false</item>
     <item type="id" name="tv_user_protocol_title">false</item>
+    <item type="id" name="tv_register_email_title">false</item>
+    <item type="id" name="tv_register_email_link">false</item>
+    <item type="id" name="rg_et_name">false</item>
+    <item type="id" name="rg_et_pwd">false</item>
+    <item type="id" name="rg_et_pwd_confim">false</item>
+    <item type="id" name="rg_et_number">false</item>
     
 </resources>

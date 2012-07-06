@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbars="none" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        style="@style/Style_Scrollable">
+        <LinearLayout android:orientation="vertical" 
+            android:paddingLeft="10.0dip" 
+            android:paddingTop="15.0dip" 
+            android:paddingRight="10.0dip" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent">
+            <EditText android:id="@id/rg_et_name" 
+                android:background="@drawable/edittext_default" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginBottom="8.0dip" 
+                android:hint="@string/input_name_hint" 
+                android:singleLine="true" 
+                android:inputType="textEmailAddress" 
+                android:imeOptions="actionNext" />
+            <EditText android:id="@id/rg_et_number" 
+                android:background="@drawable/edittext_default" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginBottom="8.0dip" 
+                android:hint="@string/input_number_hint" 
+                android:singleLine="true" 
+                android:inputType="textEmailAddress" 
+                android:imeOptions="actionNext" />
+            <EditText android:id="@id/rg_et_pwd" 
+                android:background="@drawable/edittext_default" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginBottom="8.0dip" 
+                android:hint="@string/input_password_hint" 
+                android:singleLine="true" 
+                android:inputType="textPassword" 
+                android:imeOptions="actionNext" />
+            <EditText android:id="@id/rg_et_pwd_confim" 
+                android:background="@drawable/edittext_default" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginBottom="8.0dip" 
+                android:hint="@string/repeat_password_hint" 
+                android:singleLine="true" 
+                android:inputType="textPassword" 
+                android:imeOptions="actionDone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
