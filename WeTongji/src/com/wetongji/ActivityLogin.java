@@ -73,14 +73,13 @@ public class ActivityLogin extends SherlockActivity {
                     wTClient.login(et_username.getText().toString(),
                             et_password.getText().toString());
                     
-                    if(wTClient.isHasError()) 
-                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT)
-                            .show();
-                    
                     if(!wTClient.isHasError()) {
                         Intent intent = 
                                 new Intent(getApplicationContext(), ActivityMainViewpager.class);
-                            startActivity(intent);
+                    startActivity(intent);
+                    
+                    Toast.makeText(getApplicationContext(), R.string.login, Toast.LENGTH_SHORT)
+                    .show();
                         break;
                     }
                     
