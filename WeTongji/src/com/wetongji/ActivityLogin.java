@@ -2,17 +2,20 @@ package com.wetongji;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.wetongji.net.WTClient;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class ActivityLogin extends SherlockActivity {
     
     private Button btn_login, btn_cancle;
+    private EditText et_username, et_password;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -45,6 +48,10 @@ public class ActivityLogin extends SherlockActivity {
         btn_login.setOnClickListener(btnClickListener);
         btn_cancle = (Button) findViewById(R.id.btn_back);
         btn_cancle.setOnClickListener(btnClickListener);
+        
+        et_username = (EditText) findViewById(R.id.login_et_username);
+        et_password = (EditText) findViewById(R.id.login_et_pwd);
+        
     }
     
     private OnClickListener btnClickListener = new OnClickListener() {
@@ -57,12 +64,34 @@ public class ActivityLogin extends SherlockActivity {
                 finish();
                 break;
             case R.id.btn_ok:
-                Toast.makeText(getApplicationContext(), "µÇÂ¼", Toast.LENGTH_SHORT)
-                .show();
-                Intent intent = 
-                        new Intent(getApplicationContext(), ActivityMainViewpager.class);
-                    startActivity(intent);
-                break;
+                
+                
+                WTClient wTClient;
+                // µÇÂ¼
+                try {
+                    wTClient = WTClient.getInstance();
+                    wTClient.login(et_username.getText().toString(),
+                            et_password.getText().toString());
+                    
+                    if(wTClient.isHasError()) 
+                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT)
+                            .show();
+                    
+                    if(!wTClient.isHasError()) {
+                        Intent intent = 
+                                new Intent(getApplicationContext(), ActivityMainViewpager.class);
+                            startActivity(intent);
+                        break;
+                    }
+                    
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                
+                
+                
+               
             }
         }
         
