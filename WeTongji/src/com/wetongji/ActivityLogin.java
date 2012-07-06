@@ -16,6 +16,9 @@ public class ActivityLogin extends SherlockActivity {
     
     private Button btn_login, btn_cancle;
     private EditText et_username, et_password;
+    
+    private CustomProgressDialog progressDialog = null;
+
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -65,7 +68,7 @@ public class ActivityLogin extends SherlockActivity {
                 break;
             case R.id.btn_ok:
                 
-                
+                startProgressDialog();
                 WTClient wTClient;
                 // 登录
                 try {
@@ -76,10 +79,10 @@ public class ActivityLogin extends SherlockActivity {
                     if(!wTClient.isHasError()) {
                         Intent intent = 
                                 new Intent(getApplicationContext(), ActivityMainViewpager.class);
-                    startActivity(intent);
-                    
-                    Toast.makeText(getApplicationContext(), R.string.login, Toast.LENGTH_SHORT)
-                    .show();
+                        startActivity(intent);
+                        
+                        Toast.makeText(getApplicationContext(), R.string.login, Toast.LENGTH_SHORT)
+                        .show();
                         break;
                     }
                     
@@ -95,5 +98,21 @@ public class ActivityLogin extends SherlockActivity {
         }
         
     };
+    
+    
+    private void startProgressDialog(){
+        
+        if (progressDialog == null){
+    
+            progressDialog = CustomProgressDialog.createDialog(this);
+   
+            progressDialog.setMessage("正在加载中...");
+   
+        }
+              
+        progressDialog.show();
+   
+    }
+
 
 }
