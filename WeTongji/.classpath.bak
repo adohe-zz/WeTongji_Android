@@ -4,10 +4,16 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="libs/android-support-v4.jar"/>
 	<classpathentry kind="lib" path="libs/android-query-0.21.7.jar"/>
 	<classpathentry kind="lib" path="libs/ormlite-android-4.41.jar"/>
 	<classpathentry kind="lib" path="libs/ormlite-core-4.41.jar"/>
 	<classpathentry kind="lib" path="libs/httpmime-4.1.3.jar"/>
+=======
+	<classpathentry kind="lib" path="libs/android-query-0.21.7.jar"/>
+	<classpathentry kind="lib" path="libs/ormlite-android-4.41.jar"/>
+	<classpathentry kind="lib" path="libs/ormlite-core-4.41.jar"/>
+>>>>>>> e2f1ceb8b1684e0cf70247e9aedf2b8c3a9566d6
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
