@@ -29,7 +29,6 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -61,11 +60,11 @@ public class WTClient
 		httpClient = new DefaultHttpClient();
 		request = new HttpGet();
 		post = new HttpPost();
-		hasError = false;
+		setHasError(false);
 		sessionRequired = false;
-		currentUserIdRequired = false;
-		errorDesc = null;
-		responseStatusCode = 0;
+		setCurrentUserIdRequired(false);
+		setErrorDesc(null);
+		setResponseStatusCode(0);
 		params = new HashMap<String, String>();
 		params.put("D", "android");
 		params.put("V", "1.0");
@@ -150,8 +149,18 @@ public class WTClient
 		
 		this.buildURL();
 		HttpResponse response = httpClient.execute(request);
-		String responseString = EntityUtils.toString(response.getEntity());
-		JSONObject jsonObject = new JSONObject(responseString);
+		
+		switch(response.getStatusLine().getStatusCode())
+		{
+		case 200:
+			break;
+		default:
+			{
+				this.setHasError(true);
+				this.setResponseStatusCode(response.getStatusLine().getStatusCode());
+				this.setErrorDesc(response.getStatusLine().getReasonPhrase());
+			}
+		}
 	}
 	
 	//º§ªÓ”√ªß’À∫≈
@@ -170,7 +179,6 @@ public class WTClient
 		params.put("M", "User.LogOn");
 		params.put("NO", name);
 		params.put("Password", password);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -357,7 +365,7 @@ public class WTClient
 	{
 		params.put("M", "Favorite.Get");
 		this.sessionRequired = true;
-		this.currentUserIdRequired = true;
+		this.setCurrentUserIdRequired(true);
 		this.executeRequest();
 	}
 	
@@ -367,5 +375,29 @@ public class WTClient
 		params.put("M", "News.Get");
 		params.put("Id", "newsId");
 		this.executeRequest();
+	}
+	public String getErrorDesc() {
+		return errorDesc;
+	}
+	public void setErrorDesc(String errorDesc) {
+		this.errorDesc = errorDesc;
+	}
+	public boolean isHasError() {
+		return hasError;
+	}
+	public void setHasError(boolean hasError) {
+		this.hasError = hasError;
+	}
+	public int getResponseStatusCode() {
+		return responseStatusCode;
+	}
+	public void setResponseStatusCode(int responseStatusCode) {
+		this.responseStatusCode = responseStatusCode;
+	}
+	public boolean isCurrentUserIdRequired() {
+		return currentUserIdRequired;
+	}
+	public void setCurrentUserIdRequired(boolean currentUserIdRequired) {
+		this.currentUserIdRequired = currentUserIdRequired;
 	}
 }
