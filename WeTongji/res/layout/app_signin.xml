@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <LinearLayout android:orientation="vertical" 
+        android:id="@id/layout_content" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1.0">
+            <ViewFlipper android:id="@id/widget_rg_viewflipper" 
+                android:persistentDrawingCache="animation" 
+                android:layout_width="fill_parent" 
+                android:layout_height="fill_parent" 
+                android:flipInterval="1000"
+                android:inAnimation="@anim/push_left_in"  
+	   			android:outAnimation="@anim/push_left_out">
+                
+                <include layout="@layout/include_register1"/>
+                <include layout="@layout/lay2"/>
+                <include layout="@layout/lay3"/>
+                
+            </ViewFlipper>
+        </LinearLayout>
+        <RelativeLayout style="@style/Style_BottomBar">
+            <Button android:id="@id/btn_back" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:text="@string/back" 
+                android:layout_alignParentLeft="true" 
+                style="@style/Style_Login_register_btn" />
+            <Button android:id="@id/btn_ok" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:text="@string/next" 
+                android:layout_alignParentRight="true" 
+                style="@style/Style_Login_register_btn" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

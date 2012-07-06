@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 public class AppIndex extends Activity implements OnClickListener{
     
     
-    private ImageButton btn_login;
+    private ImageButton btn_login, btn_register;
     
     /** Called when the activity is first created. */
     @Override
@@ -20,6 +20,8 @@ public class AppIndex extends Activity implements OnClickListener{
         setContentView(R.layout.app_welcome_view);
         
         btn_login = (ImageButton) findViewById(R.id.btn_login);
+        btn_login.setOnClickListener(this);
+        btn_login = (ImageButton) findViewById(R.id.btn_register);
         btn_login.setOnClickListener(this);
     }
 
@@ -30,6 +32,11 @@ public class AppIndex extends Activity implements OnClickListener{
             Intent intent = 
                 new Intent(getApplicationContext(), ActivityLogin.class);
             startActivity(intent);
+            break;
+        case R.id.btn_register:
+            Intent intent2 = 
+                new Intent(getApplicationContext(), ActivitySignin.class);
+            startActivity(intent2);
             break;
         }
     }

@@ -33,6 +33,12 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.Sherlock" >
         </activity>
+        
+        <activity
+            android:name=".ActivitySignin"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Sherlock" >
+        </activity>
     </application>
 
 </manifest>

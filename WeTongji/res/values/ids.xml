@@ -18,5 +18,8 @@
     <item name="login_tv_forgotpassword" type="id">false</item>
     <item name="btn_back" type="id">false</item>
     <item name="btn_ok" type="id">false</item>
+    <item type="id" name="widget_rg_viewflipper">false</item>
+    <item type="id" name="divider_line">false</item>
+    <item type="id" name="tv_user_protocol_title">false</item>
     
 </resources>

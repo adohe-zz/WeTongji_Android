@@ -22,4 +22,10 @@
         <item name="android:height">42.0dip</item>
     </style>
     
+    <style name="Style_Scrollable">
+        <item name="android:fadingEdge">none</item>
+        <item name="android:scrollingCache">false</item>
+        <item name="android:cacheColorHint">#00000000</item>
+    </style>
+    
 </resources>
