@@ -27,5 +27,6 @@
     <item type="id" name="rg_et_pwd">false</item>
     <item type="id" name="rg_et_pwd_confim">false</item>
     <item type="id" name="rg_et_number">false</item>
+    <item name="welcome_layout_welcome" type="id">false</item>
     
 </resources>

@@ -44,4 +44,42 @@
     </style>  
     <!-- 自定义process dialog -->
     
+    <style name="Profile_Item_Title">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/dropbar_text_color</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/bg_splitbar</item>
+        <item name="android:paddingLeft">6.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    
+    <style name="Profile_Item_Left">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/notes_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">12.0dip</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    
+    <style name="Profile_Item_Right" parent="@style/Item_Right">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/dropbar_text_color</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    
+     <style name="Item_Right">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">12.0dip</item>
+        <item name="android:layout_marginRight">12.0dip</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    
 </resources>

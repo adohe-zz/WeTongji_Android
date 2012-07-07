@@ -7,8 +7,8 @@
     <!-- app_welcome_bg -->
 
     <LinearLayout android:orientation="vertical" 
-        android:id="@+id/welcome_layout_welcome" 
-        android:visibility="visible" 
+        android:id="@id/welcome_layout_welcome" 
+        android:visibility="gone" 
         android:layout_width="fill_parent" 
         android:layout_height="fill_parent">
         

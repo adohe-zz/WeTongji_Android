@@ -3,11 +3,14 @@ package com.wetongji;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
@@ -77,6 +80,7 @@ public class WTDashboardFragment extends Fragment {
                 new int[] {R.id.img_square_grid_item});
         
         grid_dashboard.setAdapter(saImageItems);
+        grid_dashboard.setOnItemClickListener(itemClickListener);
     }
 
     @Override
@@ -88,5 +92,30 @@ public class WTDashboardFragment extends Fragment {
         
         return v;
     }
+    
+    
+    
+    @Override
+    public void onPause() {
+        // TODO Auto-generated method stub
+        super.onPause();
+    }
+
+
+
+    private OnItemClickListener itemClickListener = new OnItemClickListener() {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position,
+                long id) {
+            // TODO Auto-generated method stub
+            switch(position) {
+            case 5:
+                startActivity(new Intent(getActivity(), ActivityUserProfile.class));
+                break;
+            }
+        }
+        
+    };
 
 }

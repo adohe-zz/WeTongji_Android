@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" 
+    android:background="@android:color/white" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+  	xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@+id/scrollview_content" 
+        android:scrollbars="none" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true" 
+        style="@style/Style_Scrollable">
+        <LinearLayout android:gravity="center" 
+            android:orientation="vertical" 
+            android:id="@+id/layout_content" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent">
+            
+            <LinearLayout android:orientation="vertical" 
+                android:id="@+id/profile_layout_acount_info" 
+                android:background="@drawable/btn_edittext_def_focus" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content">
+                <TextView android:id="@+id/textview_aocuntinfo_title" 
+                    android:text="账号信息" style="@style/Profile_Item_Title" />
+                <RelativeLayout android:id="@+id/momoid_titile" 
+                    android:background="@android:color/white" 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="50.0dip">
+                    <TextView android:id="@+id/textviewmomotitle" 
+                        android:text="陌陌号" style="@style/Profile_Item_Left" />
+                    <TextView android:id="@+id/profile_tv_momoid" 
+                        android:text="" style="@style/Profile_Item_Right" />
+                </RelativeLayout>
+                <include layout="@layout/include_divideline" />
+                <RelativeLayout android:id="@+id/momoid_titile" 
+                    android:background="@android:color/white" 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="50.0dip">
+                    <TextView android:id="@+id/textviewtimetitle" 
+                        android:text="注册时间" 
+                        style="@style/Profile_Item_Left" />
+                    <TextView android:id="@+id/profile_tv_regist_time" 
+                        android:text="" 
+                        style="@style/Profile_Item_Right" />
+                </RelativeLayout>
+            </LinearLayout>
+            
+            
+        </LinearLayout>
+    </ScrollView>   
+</RelativeLayout>
