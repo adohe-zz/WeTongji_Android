@@ -3,11 +3,11 @@
  */
 package co.wetongji.dao;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.wetongji.data.User;
 
 /**
@@ -23,7 +23,7 @@ public class UserDao implements EntityDao
 	@Override
 	public void create(JSONObject jsonObject) throws Exception
 	{
-		String avatar = jsonObject.getString("Avatar");
+		/*String avatar = jsonObject.getString("Avatar");
 		String birth = jsonObject.getString("Birthday");
 		String degree = jsonObject.getString("degree");
 		String department = jsonObject.getString("Department");
@@ -39,19 +39,20 @@ public class UserDao implements EntityDao
 		String qq = jsonObject.getString("QQ");
 		String weibo = jsonObject.getString("SinaWeibo");
 		String uId = jsonObject.getString("UID");
-		String year = jsonObject.getString("Year");
+		String year = jsonObject.getString("Year");*/
 		
+		Log.v("User", jsonObject.toString());
+		//Log.v("avatar", avatar);
+		//Log.v("birth", birth);
 		
-		Log.v("avatar", avatar);
-		Log.v("birth", birth);
+		Gson gson = new Gson();
+		User user = gson.fromJson(jsonObject.toString(), User.class);
+		this.setUser(user);
 	}
-	User getUser() 
-	{
+	public User getUser() {
 		return user;
 	}
-	void setUser(User user) 
-	{
+	public void setUser(User user) {
 		this.user = user;
 	}
-
 }

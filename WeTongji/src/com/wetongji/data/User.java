@@ -7,6 +7,7 @@ public class User {
 	@DatabaseField(id=true)
 	String NO;
 	@DatabaseField
+	private
 	String Name;
 	@DatabaseField
 	String Avatar;
@@ -31,6 +32,7 @@ public class User {
 	@DatabaseField
 	String Plan;	//Ñ§ÖÆ
 	@DatabaseField
+	private
 	String SinaWeibo;
 	@DatabaseField
 	String QQ;
@@ -74,7 +76,7 @@ public class User {
 			String plan, String sinaWeibo, String qQ, String department,
 			String email) {
 		NO = nO;
-		Name = name;
+		setName(name);
 		Avatar = avatar;
 		UID = uID;
 		Phone = phone;
@@ -86,10 +88,34 @@ public class User {
 		Year = year;
 		Birthday = birthday;
 		Plan = plan;
-		SinaWeibo = sinaWeibo;
+		setSinaWeibo(sinaWeibo);
 		QQ = qQ;
 		Department = department;
 		Email = email;
+	}
+
+
+
+	public String getName() {
+		return Name;
+	}
+
+
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+
+
+	public String getSinaWeibo() {
+		return SinaWeibo;
+	}
+
+
+
+	public void setSinaWeibo(String sinaWeibo) {
+		SinaWeibo = sinaWeibo;
 	}
 
 }
