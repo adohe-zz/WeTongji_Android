@@ -1,5 +1,5 @@
 #
-# generated on 2012/07/03 09:42:35
+# generated on 2012/07/07 09:28:00
 #
 # --table-start--
 dataClass=com.wetongji.data.Activity
@@ -175,56 +175,56 @@ dataClass=com.wetongji.data.User
 tableName=user
 # --table-fields-start--
 # --field-start--
-fieldName=no
+fieldName=NO
 id=true
 # --field-end--
 # --field-start--
-fieldName=name
+fieldName=Name
 # --field-end--
 # --field-start--
-fieldName=avatar
+fieldName=Avatar
 # --field-end--
 # --field-start--
-fieldName=uid
+fieldName=UID
 # --field-end--
 # --field-start--
-fieldName=phone
+fieldName=Phone
 # --field-end--
 # --field-start--
-fieldName=displayName
+fieldName=DisplayName
 # --field-end--
 # --field-start--
-fieldName=major
+fieldName=Major
 # --field-end--
 # --field-start--
-fieldName=nativePlace
+fieldName=NativePlace
 # --field-end--
 # --field-start--
-fieldName=degree
+fieldName=Degree
 # --field-end--
 # --field-start--
-fieldName=gender
+fieldName=Gender
 # --field-end--
 # --field-start--
-fieldName=year
+fieldName=Year
 # --field-end--
 # --field-start--
-fieldName=birthday
+fieldName=Birthday
 # --field-end--
 # --field-start--
-fieldName=plan
+fieldName=Plan
 # --field-end--
 # --field-start--
-fieldName=sinaWeibo
+fieldName=SinaWeibo
 # --field-end--
 # --field-start--
-fieldName=qq
+fieldName=QQ
 # --field-end--
 # --field-start--
-fieldName=department
+fieldName=Department
 # --field-end--
 # --field-start--
-fieldName=email
+fieldName=Email
 # --field-end--
 # --table-fields-end--
 # --table-end--

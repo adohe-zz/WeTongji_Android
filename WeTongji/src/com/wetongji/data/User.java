@@ -5,39 +5,39 @@ import com.j256.ormlite.field.DatabaseField;
 public class User {
 	
 	@DatabaseField(id=true)
-	String no;
+	String NO;
 	@DatabaseField
-	String name;
+	String Name;
 	@DatabaseField
-	String avatar;
+	String Avatar;
 	@DatabaseField
-	String uid;
+	String UID;
 	@DatabaseField
-	String phone;
+	String Phone;
 	@DatabaseField
-	String displayName;
+	String DisplayName;
 	@DatabaseField
-	String major;
+	String Major;
 	@DatabaseField
-	String nativePlace;
+	String NativePlace;
 	@DatabaseField
-	String degree;
+	String Degree;
 	@DatabaseField
-	String gender;
+	String Gender;
 	@DatabaseField
-	String year;	//入学年份
+	String Year;	//入学年份
 	@DatabaseField
-	String birthday;
+	String Birthday;
 	@DatabaseField
-	String plan;	//学制
+	String Plan;	//学制
 	@DatabaseField
-	String sinaWeibo;
+	String SinaWeibo;
 	@DatabaseField
-	String qq;
+	String QQ;
 	@DatabaseField
-	String department;
+	String Department;
 	@DatabaseField
-	String email;
+	String Email;
 	
 	
 
@@ -50,10 +50,10 @@ public class User {
 
 
 	/**
-	 * @param no
+	 * @param nO
 	 * @param name
 	 * @param avatar
-	 * @param uid
+	 * @param uID
 	 * @param phone
 	 * @param displayName
 	 * @param major
@@ -64,32 +64,32 @@ public class User {
 	 * @param birthday
 	 * @param plan
 	 * @param sinaWeibo
-	 * @param qq
+	 * @param qQ
 	 * @param department
 	 * @param email
 	 */
-	public User(String no, String name, String avatar, String uid, String phone,
+	User(String nO, String name, String avatar, String uID, String phone,
 			String displayName, String major, String nativePlace,
 			String degree, String gender, String year, String birthday,
-			String plan, String sinaWeibo, String qq, String department,
+			String plan, String sinaWeibo, String qQ, String department,
 			String email) {
-		this.no = no;
-		this.name = name;
-		this.avatar = avatar;
-		this.uid = uid;
-		this.phone = phone;
-		this.displayName = displayName;
-		this.major = major;
-		this.nativePlace = nativePlace;
-		this.degree = degree;
-		this.gender = gender;
-		this.year = year;
-		this.birthday = birthday;
-		this.plan = plan;
-		this.sinaWeibo = sinaWeibo;
-		this.qq = qq;
-		this.department = department;
-		this.email = email;
+		NO = nO;
+		Name = name;
+		Avatar = avatar;
+		UID = uID;
+		Phone = phone;
+		DisplayName = displayName;
+		Major = major;
+		NativePlace = nativePlace;
+		Degree = degree;
+		Gender = gender;
+		Year = year;
+		Birthday = birthday;
+		Plan = plan;
+		SinaWeibo = sinaWeibo;
+		QQ = qQ;
+		Department = department;
+		Email = email;
 	}
 
 }
