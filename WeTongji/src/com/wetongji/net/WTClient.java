@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.wetongji.net;
 
 import java.io.File;
