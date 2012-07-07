@@ -31,8 +31,7 @@ public class WTMainFragmentAdapter extends FragmentPagerAdapter {
         case POS_PERSONAL:
             return WTSheduleFragment.newInstance(R.layout.lay1);
         case POS_DASHBORD:
-            return WTSheduleFragment.newInstance(R.layout.lay2);
-            //return WTDashboardFragment.newInstance(R.layout.app_square_fragment);
+            return WTDashboardFragment.newInstance(R.layout.app_square_fragment);
         case POS_SETTING:
             return WTSheduleFragment.newInstance(R.layout.lay3);
         default:

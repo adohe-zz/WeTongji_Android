@@ -62,14 +62,12 @@ public class ActivityMainViewpager extends SherlockFragmentActivity {
     
     @Override 
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        // your stuff or nothing
+        //super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        // your stuff or nothing
     }
 }
 

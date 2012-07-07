@@ -15,7 +15,9 @@
             android:orientation="vertical" 
             android:id="@+id/layout_content" 
             android:layout_width="fill_parent" 
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:layout_marginRight="9.0dp"
+            android:layout_marginLeft="9.0dp">
             
             <LinearLayout android:orientation="vertical" 
                 android:id="@+id/profile_layout_acount_info" 
@@ -23,13 +25,13 @@
                 android:layout_width="fill_parent" 
                 android:layout_height="wrap_content">
                 <TextView android:id="@+id/textview_aocuntinfo_title" 
-                    android:text="账号信息" style="@style/Profile_Item_Title" />
+                    android:text="基本信息" style="@style/Profile_Item_Title" />
                 <RelativeLayout android:id="@+id/momoid_titile" 
                     android:background="@android:color/white" 
                     android:layout_width="fill_parent" 
                     android:layout_height="50.0dip">
                     <TextView android:id="@+id/textviewmomotitle" 
-                        android:text="陌陌号" style="@style/Profile_Item_Left" />
+                        android:text="学号" style="@style/Profile_Item_Left" />
                     <TextView android:id="@+id/profile_tv_momoid" 
                         android:text="" style="@style/Profile_Item_Right" />
                 </RelativeLayout>
@@ -39,7 +41,7 @@
                     android:layout_width="fill_parent" 
                     android:layout_height="50.0dip">
                     <TextView android:id="@+id/textviewtimetitle" 
-                        android:text="注册时间" 
+                        android:text="入学时间" 
                         style="@style/Profile_Item_Left" />
                     <TextView android:id="@+id/profile_tv_regist_time" 
                         android:text="" 

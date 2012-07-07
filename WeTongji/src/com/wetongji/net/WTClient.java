@@ -221,8 +221,8 @@ public class WTClient
 			JSONObject user = responseData.getJSONObject("User");
 			String session = responseData.getString("Session");
 			
-			UserDao userDao = new UserDao();
-			userDao.create(user);
+//			UserDao userDao = new UserDao();
+//			userDao.create(user);
 		}
 	}
 	

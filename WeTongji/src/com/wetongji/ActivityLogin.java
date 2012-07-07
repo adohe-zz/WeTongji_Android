@@ -166,6 +166,10 @@ public class ActivityLogin extends SherlockActivity {
                 Toast.makeText(getApplicationContext(), R.string.login, Toast.LENGTH_SHORT)
                     .show();
             }
+            else {
+                Toast.makeText(getApplicationContext(), "µÇÂ¼Ê§°Ü", Toast.LENGTH_SHORT)
+                .show();
+            }
             stopProgressDialog();
         }
 
