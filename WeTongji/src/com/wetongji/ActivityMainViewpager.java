@@ -24,7 +24,6 @@ public class ActivityMainViewpager extends SherlockFragmentActivity {
         
         InitViewPager();
         
-        //initSquareGrid();
         
     }
 
@@ -60,6 +59,18 @@ public class ActivityMainViewpager extends SherlockFragmentActivity {
         }
     };            
     
+    
+    @Override 
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        // your stuff or nothing
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // your stuff or nothing
+    }
 }
 
 

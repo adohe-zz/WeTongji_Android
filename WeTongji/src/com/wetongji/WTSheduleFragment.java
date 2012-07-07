@@ -1,12 +1,13 @@
 package com.wetongji;
 
+import com.actionbarsherlock.app.SherlockFragment;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class WTSheduleFragment extends Fragment{
+public class WTSheduleFragment extends SherlockFragment{
     static  int LAYOUT_ID;
     
     public static WTSheduleFragment newInstance(int layout_id){

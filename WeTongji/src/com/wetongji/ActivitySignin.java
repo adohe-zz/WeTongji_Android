@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextPaint;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -28,6 +29,19 @@ public class ActivitySignin extends SherlockActivity {
         setTitle(getResources().getString(R.string.register_new_account_step1));
         
         initWidget();
+    }
+    
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            startActivity(new Intent(this, AppIndex.class));
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+        
     }
     
     private void initWidget() {
@@ -74,6 +88,8 @@ public class ActivitySignin extends SherlockActivity {
 
                 }
                 else {
+                    Intent intent = new Intent(ActivitySignin.this, AppIndex.class);
+                    startActivity(intent);
                     finish();
                 }
                 break;

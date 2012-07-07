@@ -51,4 +51,6 @@
     <color name="text_shadow">#000000</color>
 	<color name="text_color">#ff434343</color>
 	<color name="divideline">#ffd1d1d1</color>
+	<color name="dropbar_text_color">#ff434343</color>
+	<color name="notes_color">#ff777777</color>
 </resources>
