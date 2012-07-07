@@ -29,8 +29,13 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import co.wetongji.dao.UserDao;
+
+import android.util.Log;
 
 /**
  * @author hezibo
@@ -49,8 +54,11 @@ public class WTClient
 	private int responseStatusCode;
 	private boolean sessionRequired;
 	private boolean currentUserIdRequired;
+	private String responseStr;
 	
 	private Map<String, String> params;
+	private Map<String, String> data;
+
 	
 	private static String APIDomain = "http://we.tongji.edu.cn/api/call";
 	
@@ -66,6 +74,7 @@ public class WTClient
 		setErrorDesc(null);
 		setResponseStatusCode(0);
 		params = new HashMap<String, String>();
+		setData(new HashMap<String, String>());
 		params.put("D", "android");
 		params.put("V", "1.0");
 	}
@@ -152,17 +161,45 @@ public class WTClient
 		
 		switch(response.getStatusLine().getStatusCode())
 		{
-		case 200:
-			break;
-		default:
+			case 200:
 			{
+				this.requestFinished(response);
+			}
+				break;
+			default:
+			{
+				//出现网络错误
 				this.setHasError(true);
 				this.setResponseStatusCode(response.getStatusLine().getStatusCode());
 				this.setErrorDesc(response.getStatusLine().getReasonPhrase());
+				Log.v("REQUESTFAILED", this.getErrorDesc());
 			}
 		}
 	}
-	
+	public void requestFinished(HttpResponse response) throws RuntimeException, Exception
+	{
+		responseStr = EntityUtils.toString(response.getEntity());
+		
+		JSONObject json = new JSONObject(responseStr);
+		JSONObject data = json.getJSONObject("Data");
+		JSONObject status = json.getJSONObject("Status");
+		
+		String id = status.getString("Id");
+		String memo = status.getString("Memo");
+		
+		if(data.length() == 0)
+		{
+			this.setHasError(true);
+			this.setResponseStatusCode(Integer.valueOf(id));
+			this.setErrorDesc(memo);
+			Log.v("id", id);
+			Log.v("Memo", memo);
+		}else
+		{
+			this.setResponseStr(data.toString());
+			Log.v("responseStr", responseStr);
+		}
+	}
 	//激活用户账号
 	public void activeUser(String num, String name, String password) throws Exception
 	{
@@ -180,6 +217,16 @@ public class WTClient
 		params.put("NO", name);
 		params.put("Password", password);
 		this.executeRequest();
+		
+		if(!this.isHasError())
+		{
+			JSONObject responseData = new JSONObject(responseStr);
+			JSONObject user = responseData.getJSONObject("User");
+			String session = responseData.getString("Session");
+			
+			UserDao userDao = new UserDao();
+			userDao.create(user);
+		}
 	}
 	
 	//修改用户密码
@@ -376,6 +423,11 @@ public class WTClient
 		params.put("Id", "newsId");
 		this.executeRequest();
 	}
+	
+	public void fail()
+	{
+		
+	}
 	public String getErrorDesc() {
 		return errorDesc;
 	}
@@ -399,5 +451,17 @@ public class WTClient
 	}
 	public void setCurrentUserIdRequired(boolean currentUserIdRequired) {
 		this.currentUserIdRequired = currentUserIdRequired;
+	}
+	private String getResponseStr() {
+		return responseStr;
+	}
+	private void setResponseStr(String responseStr) {
+		this.responseStr = responseStr;
+	}
+	public Map<String, String> getData() {
+		return data;
+	}
+	public void setData(Map<String, String> data) {
+		this.data = data;
 	}
 }
