@@ -1,7 +1,7 @@
 /**
  * 
  */
-package co.wetongji.dao;
+package com.wetongji.dao;
 
 import org.json.JSONObject;
 

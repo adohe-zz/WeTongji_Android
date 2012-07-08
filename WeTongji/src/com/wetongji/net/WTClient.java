@@ -30,7 +30,8 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import co.wetongji.dao.UserDao;
+import com.wetongji.dao.UserDao;
+
 
 import android.util.Log;
 
