@@ -20,9 +20,13 @@
                 android:layout_width="fill_parent" 
                 android:layout_height="fill_parent">
                 
+                
+                <!-- 看不见的LinearLayout让输入框默认不获取焦点 -->
                 <LinearLayout 
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" />
                 
                 <EditText android:id="@id/login_et_username" 
                     android:background="@drawable/edittext_default" 
