@@ -12,13 +12,18 @@
         <ScrollView android:scrollbars="vertical" 
             android:layout_width="fill_parent" 
             android:layout_height="fill_parent" 
-            android:layout_weight="1.0">
+            android:layout_weight="1.0" >
             <LinearLayout android:orientation="vertical" 
                 android:paddingLeft="10.0dip" 
                 android:paddingTop="15.0dip" 
                 android:paddingRight="10.0dip" 
                 android:layout_width="fill_parent" 
                 android:layout_height="fill_parent">
+                
+                <LinearLayout 
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
+                
                 <EditText android:id="@id/login_et_username" 
                     android:background="@drawable/edittext_default" 
                     android:layout_width="fill_parent" 

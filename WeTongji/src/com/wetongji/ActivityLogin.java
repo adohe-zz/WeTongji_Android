@@ -42,6 +42,7 @@ public class ActivityLogin extends SherlockActivity {
         switch (item.getItemId()) {
         case android.R.id.home:
             finish();
+            startActivity(new Intent(ActivityLogin.this, AppIndex.class));
             return true;
         default:
             return super.onOptionsItemSelected(item);
