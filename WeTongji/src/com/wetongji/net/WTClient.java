@@ -147,7 +147,11 @@ public class WTClient
 		String hashStr = hashQueryString(queryStr);
 		String url = APIDomain + "?" + queryStr + "&H=" + hashStr;
 		
-		URI finalURI = new URI(url);
+		String finalURL = URLEncoder.encode(url, "UTF-8");
+		
+		Log.v("final", finalURL);
+		
+		URI finalURI = new URI(finalURL);
 		request.setURI(finalURI);
 	}
 	
@@ -213,7 +217,7 @@ public class WTClient
 		params.put("Password", password);
 		this.executeRequest();
 		
-		this.userService();
+		//this.userService();
 	}
 	
 	//验证用户登录
@@ -239,7 +243,7 @@ public class WTClient
 		
 		this.executeRequest();
 		
-		this.userService();
+		//this.userService();
 	}
 	
 	//用户登出

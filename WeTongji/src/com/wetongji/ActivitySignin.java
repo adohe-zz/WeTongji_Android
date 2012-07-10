@@ -166,37 +166,37 @@ public class ActivitySignin extends SherlockActivity {
     	
     	if(rg_name.getText().toString().equals(""))
     	{
-    		Toast.makeText(getApplicationContext(), "请输入姓名", 
+    		Toast.makeText(getApplicationContext(), R.string.input_name_hint, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}else if(rg_number.getText().toString().equals(""))
     	{
-    		Toast.makeText(getApplicationContext(), "请输入学号", 
+    		Toast.makeText(getApplicationContext(), R.string.input_number_hint, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}else if(rg_pwd.getText().toString().equals(""))
     	{
-    		Toast.makeText(getApplicationContext(), "请输入密码", 
+    		Toast.makeText(getApplicationContext(), R.string.input_password_hint, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}else if(this.isSuitableForPassword(rg_pwd.getText().toString()))
     	{
-    		Toast.makeText(getApplicationContext(), "密码只支持数字，字母和下划线", 
+    		Toast.makeText(getApplicationContext(), R.string.input_password_pattern, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}else if(rg_pwd.getText().toString().length() < 6)
     	{
-    		Toast.makeText(getApplicationContext(), "请输入至少六位密码", 
+    		Toast.makeText(getApplicationContext(), R.string.input_password_hint_least, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}else if(rg_pwd_con.getText().toString().equals(""))
     	{
-    		Toast.makeText(getApplicationContext(), "请输入确认密码", 
+    		Toast.makeText(getApplicationContext(), R.string.repeat_password_hint, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}else if(!rg_pwd_con.getText().toString().equals(rg_pwd.getText().toString()))
     	{
-    		Toast.makeText(getApplicationContext(), "请重新输入确认密码", 
+    		Toast.makeText(getApplicationContext(), R.string.repeat_password_hint_again, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}

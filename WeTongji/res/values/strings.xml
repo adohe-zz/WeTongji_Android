@@ -28,7 +28,7 @@
     <string name="input_name_hint">请输入姓名</string>
     <string name="input_number_hint">请输入学号</string>
     <string name="input_password_hint">请输入密码</string>
-    <string name="repeat_password_hint">请确认密码</string>
+    <string name="repeat_password_hint">请输入确认密码</string>
     <string name="basic_data">基本资料</string>
     <string name="name">姓名</string>
     <string name="student_num">学号</string>
@@ -48,5 +48,9 @@
     <string name="register_success_message">请登录你的同济大学邮箱查收验证邮件</string>
     <string name="login_success">登陆成功</string>
     <string name="zhuce">注册</string>
+    <string name="input_account_hint">请输入账号</string>
+    <string name="input_password_hint_least">请输入至少六位密码</string>
+    <string name="input_password_pattern">密码只支持数字，字母和下划线</string>
+    <string name="repeat_password_hint_again">请重新输入确认密码</string>
 
 </resources>
