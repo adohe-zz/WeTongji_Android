@@ -1,13 +1,11 @@
 package com.wetongji;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.gson.Gson;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
-import com.wetongji.daofactory.UserFactory;
 import com.wetongji.data.DbHelper;
 import com.wetongji.data.User;
 import com.wetongji.net.WTClient;
@@ -16,7 +14,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -225,7 +222,7 @@ public class ActivityLogin extends SherlockActivity {
             {
                 writePreference("Session", this.wTClient.getSession());
                 
-                Toast.makeText(getApplicationContext(), "µÇÂ½³É¹¦", 
+                Toast.makeText(getApplicationContext(), R.string.login_success, 
                 		Toast.LENGTH_SHORT).show();
             }else 
             {
