@@ -51,8 +51,10 @@ public class WTClient
 	private int responseStatusCode;
 	private boolean sessionRequired;
 	private boolean currentUserIdRequired;
+	
 	private String responseStr;
 	private String session;
+	private String uid;
 	
 	private Map<String, String> params;
 	private Map<String, String> data;
@@ -72,6 +74,7 @@ public class WTClient
 		setSession(null);
 		setErrorDesc(null);
 		setResponseStatusCode(0);
+		setUid(null);
 		params = new HashMap<String, String>();
 		setData(new HashMap<String, String>());
 		params.put("D", "android");
@@ -491,5 +494,11 @@ public class WTClient
 	public void setSession(String session) 
 	{
 		this.session = session;
+	}
+	public String getUid() {
+		return uid;
+	}
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 }
