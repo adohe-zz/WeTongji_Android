@@ -3,6 +3,7 @@ package com.wetongji.net;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -146,7 +147,11 @@ public class WTClient
 		String hashStr = hashQueryString(queryStr);
 		String url = APIDomain + "?" + queryStr + "&H=" + hashStr;
 		
-		URI finalURI = new URI(url);
+		String finalURL = URLEncoder.encode(url, "UTF-8");
+		
+		Log.v("final", finalURL);
+		
+		URI finalURI = new URI(finalURL);
 		request.setURI(finalURI);
 	}
 	
