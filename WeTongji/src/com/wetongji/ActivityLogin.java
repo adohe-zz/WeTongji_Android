@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.gson.Gson;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.wetongji.data.DbHelper;
 import com.wetongji.data.User;
@@ -157,7 +158,8 @@ public class ActivityLogin extends SherlockActivity {
     	
     	User user = gson.fromJson(userStr.toString(), User.class);
     	
-    	dbHelper=new DbHelper(getApplicationContext());
+    	//写入user到数据库
+    	dbHelper=OpenHelperManager.getHelper(getApplicationContext(), DbHelper.class);
     	RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
 		userDao.createIfNotExists(user);
 		
@@ -182,15 +184,8 @@ public class ActivityLogin extends SherlockActivity {
         		
         		if(!this.wTClient.isHasError())
         		{
-        			/*dbHelper=new DbHelper(getApplicationContext());
-        			UserFactory userFactory=new UserFactory();
-        			//userFactory.create(jsonObject);
-        			//我没找到你要写入数据库的user对应的json啊？？？
-        			User user=userFactory.getUser();
-        			RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
-        			userDao.createIfNotExists(user);*/
         			ActivityLogin.this.createUser(this.wTClient.getResponseStr());
-        			//在这里添加数据层的部分，entityfactory是个抽象的接口，调用userfactory的getUser（）可以返回user对象
+        			
         			Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
         			startActivity(intent);
         			finish();
@@ -246,4 +241,13 @@ public class ActivityLogin extends SherlockActivity {
     	editor.putString(key, value);
     	editor.commit();
     }
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if(dbHelper!=null){
+			OpenHelperManager.releaseHelper();
+			dbHelper=null;
+		}
+	}
 }
