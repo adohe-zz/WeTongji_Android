@@ -103,4 +103,6 @@
         <item name="android:background">@drawable/avatar_frame</item>
     </style>
     
+    
+    <!-- TabVPI -->
 </resources>
