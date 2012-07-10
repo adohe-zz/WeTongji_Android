@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,7 +41,6 @@ public class ActivityLogin extends SherlockActivity {
         
         initWidget();
         
-        dbHelper=new DbHelper(getApplicationContext());
         
     }
     
@@ -166,6 +166,7 @@ public class ActivityLogin extends SherlockActivity {
         		
         		if(!this.wTClient.isHasError())
         		{
+        			dbHelper=new DbHelper(getApplicationContext());
         			UserFactory userFactory=new UserFactory();
         			//userFactory.create(jsonObject);
         			//我没找到你要写入数据库的user对应的json啊？？？
