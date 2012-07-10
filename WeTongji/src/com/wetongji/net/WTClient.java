@@ -212,7 +212,7 @@ public class WTClient
 		params.put("Password", password);
 		this.executeRequest();
 		
-		this.userService();
+		//this.userService();
 	}
 	
 	//验证用户登录
@@ -236,7 +236,7 @@ public class WTClient
 		
 		this.executeRequest();
 		
-		this.userService();
+		//this.userService();
 	}
 	
 	//用户登出

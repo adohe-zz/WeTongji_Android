@@ -97,17 +97,17 @@ public class ActivityLogin extends SherlockActivity {
     	
     	if(et_username.getText().toString().equals(""))
     	{
-    		Toast.makeText(getApplicationContext(), "«Î ‰»Î’À∫≈", 
+    		Toast.makeText(getApplicationContext(), R.string.input_account_hint, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}else if(et_password.getText().toString().equals(""))
     	{
-    		Toast.makeText(getApplicationContext(), "«Î ‰»Î√‹¬Î", 
+    		Toast.makeText(getApplicationContext(), R.string.input_password_hint, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}else if(et_password.getText().toString().length() < 6)
     	{
-    		Toast.makeText(getApplicationContext(), "«Î ‰»Î÷¡…Ÿ¡˘Œª√‹¬Î", 
+    		Toast.makeText(getApplicationContext(), R.string.input_password_hint_least, 
     				Toast.LENGTH_SHORT).show();
     		result = false;
     	}
