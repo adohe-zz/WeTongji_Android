@@ -304,8 +304,10 @@ public class ActivitySignin extends SherlockActivity {
                         }).show();
 			}else
 			{
-				Toast.makeText(getApplicationContext(), this.wTClient.getErrorDesc(), 
-                		Toast.LENGTH_SHORT).show();
+//				Toast.makeText(getApplicationContext(), this.wTClient.getErrorDesc(), 
+//                		Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ÄáÂê" + result, 
+                        Toast.LENGTH_SHORT).show();
 			}
 			stopProgressDialog();
 		}
