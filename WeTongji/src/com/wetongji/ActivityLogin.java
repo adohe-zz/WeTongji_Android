@@ -160,6 +160,7 @@ public class ActivityLogin extends SherlockActivity {
         		if(!this.wTClient.isHasError())
         		{
         			
+        			//在这里添加数据层的部分，entityfactory是个抽象的接口，调用userfactory的getUser（）可以返回user对象
         			Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
         			startActivity(intent);
         			finish();
