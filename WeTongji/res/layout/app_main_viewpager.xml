@@ -16,7 +16,7 @@
         app:clipPadding="10dp"
         app:footerColor="@color/pager_footer"
         app:footerIndicatorHeight="5dp"
-        app:footerIndicatorStyle="triangle"
+        app:footerIndicatorStyle="underline"
         app:footerLineHeight="4dp"
         app:selectedBold="true"
         app:selectedColor="@color/pager_selected_text"

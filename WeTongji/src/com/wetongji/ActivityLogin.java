@@ -159,6 +159,7 @@ public class ActivityLogin extends SherlockActivity {
         		
         		if(!this.wTClient.isHasError())
         		{
+        			
         			Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
         			startActivity(intent);
         			finish();

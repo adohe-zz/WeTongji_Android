@@ -5,12 +5,14 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.viewpagerindicator.PageIndicator;
+import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
 public class ActivityMainViewpager extends SherlockFragmentActivity {
     
     private ViewPager mPager;//Ò³¿¨ÄÚÈÝ    
-    private TitlePageIndicator indicator; // 
+    private PageIndicator indicator; // 
         
     
     @Override

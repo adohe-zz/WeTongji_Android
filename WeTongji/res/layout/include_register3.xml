@@ -21,7 +21,8 @@
                 android:hint="@string/input_name_hint" 
                 android:singleLine="true" 
                 android:inputType="textEmailAddress" 
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:textColor="@android:color/black" />
             <EditText android:id="@id/rg_et_number" 
                 android:background="@drawable/edittext_default" 
                 android:layout_width="fill_parent" 
@@ -30,7 +31,8 @@
                 android:hint="@string/input_number_hint" 
                 android:singleLine="true" 
                 android:inputType="textEmailAddress" 
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:textColor="@android:color/black" />
             <EditText android:id="@id/rg_et_pwd" 
                 android:background="@drawable/edittext_default" 
                 android:layout_width="fill_parent" 
@@ -39,7 +41,8 @@
                 android:hint="@string/input_password_hint" 
                 android:singleLine="true" 
                 android:inputType="textPassword" 
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:textColor="@android:color/black" />
             <EditText android:id="@id/rg_et_pwd_confim" 
                 android:background="@drawable/edittext_default" 
                 android:layout_width="fill_parent" 
@@ -48,7 +51,8 @@
                 android:hint="@string/repeat_password_hint" 
                 android:singleLine="true" 
                 android:inputType="textPassword" 
-                android:imeOptions="actionDone" />
+                android:imeOptions="actionDone"
+                android:textColor="@android:color/black" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -27,6 +27,8 @@ public class AppIndex extends Activity implements OnClickListener{
         btn_login.setOnClickListener(this);
         btn_register = (ImageButton) findViewById(R.id.btn_register);
         btn_register.setOnClickListener(this);
+        ImageButton btn_login_later = (ImageButton) findViewById(R.id.btn_login_later);
+        btn_login_later.setOnClickListener(this);
         
         welcomeLayout = (LinearLayout) findViewById(R.id.welcome_layout_welcome);
         
@@ -47,6 +49,12 @@ public class AppIndex extends Activity implements OnClickListener{
             Intent intent2 = 
                 new Intent(getApplicationContext(), ActivitySignin.class);
             startActivity(intent2);
+            finish();
+            break;
+        case R.id.btn_login_later:
+            Intent intent3 = 
+                new Intent(getApplicationContext(), ActivityMainViewpager.class);
+            startActivity(intent3);
             finish();
             break;
         }

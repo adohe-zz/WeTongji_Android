@@ -12,13 +12,22 @@
         <ScrollView android:scrollbars="vertical" 
             android:layout_width="fill_parent" 
             android:layout_height="fill_parent" 
-            android:layout_weight="1.0">
+            android:layout_weight="1.0" >
             <LinearLayout android:orientation="vertical" 
                 android:paddingLeft="10.0dip" 
                 android:paddingTop="15.0dip" 
                 android:paddingRight="10.0dip" 
                 android:layout_width="fill_parent" 
                 android:layout_height="fill_parent">
+                
+                
+                <!-- 看不见的LinearLayout让输入框默认不获取焦点 -->
+                <LinearLayout 
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" />
+                
                 <EditText android:id="@id/login_et_username" 
                     android:background="@drawable/edittext_default" 
                     android:layout_width="fill_parent" 
@@ -26,7 +35,8 @@
                     android:layout_marginBottom="8.0dip" 
                     android:hint="@string/login_hit_username" 
                     android:singleLine="true" 
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textColor="@android:color/black" />
                 <EditText android:id="@id/login_et_pwd" 
                     android:background="@drawable/edittext_default" 
                     android:layout_width="fill_parent" 
@@ -35,13 +45,15 @@
                     android:hint="@string/login_hit_password" 
                     android:singleLine="true" 
                     android:inputType="textPassword" 
-                    android:imeOptions="actionDone" />
+                    android:imeOptions="actionDone"
+                    android:textColor="@android:color/black" />
                 <TextView android:textSize="16.0sp" 
                     android:id="@id/login_tv_forgotpassword" 
                     android:clickable="true" 
                     android:layout_width="wrap_content" 
                     android:layout_height="wrap_content" 
-                    android:text="@string/forgetpassword" />
+                    android:text="@string/forgetpassword"
+                    android:textColor="@android:color/black" />
             </LinearLayout>
         </ScrollView>
         <RelativeLayout style="@style/Style_BottomBar">
