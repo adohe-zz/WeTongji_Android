@@ -47,5 +47,6 @@
     <string name="register_success_title">注册成功</string>
     <string name="register_success_message">请登录你的同济大学邮箱查收验证邮件</string>
     <string name="login_success">登陆成功</string>
+    <string name="zhuce">注册</string>
 
 </resources>

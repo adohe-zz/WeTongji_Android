@@ -148,7 +148,7 @@ public class ActivityLogin extends SherlockActivity {
         }
     }
     
-    public void createUser(String jsonStr) throws Exception
+    public User createUser(String jsonStr) throws Exception
     {
     	JSONObject data = new JSONObject(jsonStr);
     	JSONObject userStr = data.getJSONObject("User");
@@ -160,6 +160,8 @@ public class ActivityLogin extends SherlockActivity {
     	dbHelper=new DbHelper(getApplicationContext());
     	RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
 		userDao.createIfNotExists(user);
+		
+		return user;
 		
     }
     public class LoginTask extends AsyncTask<Integer, String, Integer> 
@@ -222,6 +224,14 @@ public class ActivityLogin extends SherlockActivity {
             {
                 writePreference("Session", this.wTClient.getSession());
                 
+                try {
+                    writePreference("CurrentSchoolNumber", 
+                            ActivityLogin.this.createUser(this.wTClient.getResponseStr()).getNO());
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                
                 Toast.makeText(getApplicationContext(), R.string.login_success, 
                 		Toast.LENGTH_SHORT).show();
             }else 
@@ -239,6 +249,7 @@ public class ActivityLogin extends SherlockActivity {
             startProgressDialog();
         }                      
     }
+    
     private void writePreference(String key, String value)
     {
     	SharedPreferences.Editor editor = ActivityLogin.this.getSharedPreferences("SettingInfo", MODE_WORLD_WRITEABLE)
@@ -246,4 +257,8 @@ public class ActivityLogin extends SherlockActivity {
     	editor.putString(key, value);
     	editor.commit();
     }
+    
+ 
+    
+    
 }

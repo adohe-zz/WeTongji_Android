@@ -3,6 +3,7 @@ package com.wetongji.net;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -218,6 +219,8 @@ public class WTClient
 	//验证用户登录
 	public void login(String name, String password) throws Exception
 	{
+	    name = URLEncoder.encode(name, "UTF-8");
+
 		params.put("M", "User.LogOn");
 		params.put("NO", name);
 		params.put("Password", password);

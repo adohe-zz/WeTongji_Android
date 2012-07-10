@@ -117,7 +117,7 @@ public class ActivitySignin extends SherlockActivity {
                     // ÏÂÒ»²½
                     viewflipper.showNext();
                     ActivitySignin.this.setTitle(R.string.register_new_account_step3);
-                    btn_next.setText(R.string.register);
+                    btn_next.setText(R.string.zhuce);
 
                 }
                 else if(viewflipper.indexOfChild(viewflipper.getCurrentView()) == 0) 
@@ -269,6 +269,7 @@ public class ActivitySignin extends SherlockActivity {
 				{
 					return wTClient.getResponseStatusCode();
 				}
+				
 			} catch (Exception e) 
 			{
 				// TODO Auto-generated catch block
@@ -286,13 +287,27 @@ public class ActivitySignin extends SherlockActivity {
 		{
 			if(result == 0)
 			{	
-				Toast.makeText(getApplicationContext(), R.string.register, 
-                		Toast.LENGTH_SHORT).show();
+			    new AlertDialog.Builder(ActivitySignin.this)
+                .setTitle(R.string.register_success_title)
+                .setMessage(R.string.register_success_message)
+                .setPositiveButton(R.string.ensure,
+                        new DialogInterface.OnClickListener() {
+                            
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // TODO Auto-generated method stub
+                                ActivitySignin.this
+                                    .startActivity(new Intent(ActivitySignin.this,
+                                            ActivityLogin.class));
+                                ActivitySignin.this.finish();
+                            }
+                        }).show();
 			}else
 			{
 				Toast.makeText(getApplicationContext(), this.wTClient.getErrorDesc(), 
                 		Toast.LENGTH_SHORT).show();
 			}
+			stopProgressDialog();
 		}
 		@Override
 	    protected void onPreExecute() 
