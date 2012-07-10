@@ -30,7 +30,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import co.wetongji.dao.UserDao;
+import com.wetongji.daofactory.UserFactory;
 
 import android.util.Log;
 
@@ -52,6 +52,7 @@ public class WTClient
 	private boolean sessionRequired;
 	private boolean currentUserIdRequired;
 	private String responseStr;
+	private String session;
 	
 	private Map<String, String> params;
 	private Map<String, String> data;
@@ -68,6 +69,7 @@ public class WTClient
 		setHasError(false);
 		sessionRequired = false;
 		setCurrentUserIdRequired(false);
+		setSession(null);
 		setErrorDesc(null);
 		setResponseStatusCode(0);
 		params = new HashMap<String, String>();
@@ -148,11 +150,6 @@ public class WTClient
 	//执行request
 	public void executeRequest() throws Exception
 	{
-		if(this.sessionRequired)
-		{
-			params.put("S", "jjglajglagh");
-		}
-		
 		this.buildURL();
 		HttpResponse response = httpClient.execute(request);
 		
@@ -180,6 +177,7 @@ public class WTClient
 		JSONObject json = new JSONObject(responseStr);
 		JSONObject data = json.getJSONObject("Data");
 		JSONObject status = json.getJSONObject("Status");
+	
 		
 		String id = status.getString("Id");
 		String memo = status.getString("Memo");
@@ -189,11 +187,16 @@ public class WTClient
 			this.setHasError(true);
 			this.setResponseStatusCode(Integer.valueOf(id));
 			this.setErrorDesc(memo);
+			
 			Log.v("id", id);
 			Log.v("Memo", memo);
 		}else
 		{
-			this.setResponseStr(data.toString());
+			this.setResponseStr(data.toString());//responseStr存放的是整个data这个json
+			String session = data.getString("Session");
+			this.setSession(session);
+			
+			Log.v("session", session);
 			Log.v("responseStr", responseStr);
 		}
 	}
@@ -205,6 +208,8 @@ public class WTClient
 		params.put("Name", name);
 		params.put("Password", password);
 		this.executeRequest();
+		
+		this.userService();
 	}
 	
 	//验证用户登录
@@ -215,25 +220,20 @@ public class WTClient
 		params.put("Password", password);
 		this.executeRequest();
 		
-		if(!this.isHasError())
-		{
-			JSONObject responseData = new JSONObject(responseStr);
-			JSONObject user = responseData.getJSONObject("User");
-			String session = responseData.getString("Session");
-			
-//			UserDao userDao = new UserDao();
-//			userDao.create(user);
-		}
+		this.userService();
 	}
 	
 	//修改用户密码
-	public void updatePassword(String oldPassword, String newPassword) throws Exception
+	public void updatePassword(String oldPassword, String newPassword, String session) throws Exception
 	{
 		params.put("M", "User.Update.Password");
 		params.put("Old", oldPassword);
 		params.put("New", newPassword);
-		this.sessionRequired = true;
+		params.put("S", session);
+		
 		this.executeRequest();
+		
+		this.userService();
 	}
 	
 	//用户登出
@@ -244,10 +244,10 @@ public class WTClient
 	}
 	
 	//修改用户头像
-	public void updateUserAvatar(File imageFile) throws ClientProtocolException, IOException, Exception
+	public void updateUserAvatar(File imageFile, String session) throws ClientProtocolException, IOException, Exception
 	{
 		params.put("M", "User.Update.Avatar");
-		this.sessionRequired = true;
+		params.put("S", session);
 		
 		Set<Map.Entry<String, String>> paramsSet = new HashSet<Map.Entry<String, String>>(params.entrySet());
 		UploadImage(APIDomain, paramsSet, imageFile);
@@ -255,9 +255,10 @@ public class WTClient
 	}
 	
 	//修改用户资料
-	public void updateUser(String phone, String email, String qq, String weibo) throws JSONException, Exception
+	public void updateUser(String phone, String email, String qq, String weibo, String session) throws JSONException, Exception
 	{
 		params.put("M", "User.Update");
+		params.put("S", session);
 		this.sessionRequired = true;
 		
 		JSONObject json = new JSONObject();
@@ -421,44 +422,74 @@ public class WTClient
 		this.executeRequest();
 	}
 	
-	public void fail()
+	//userService,用来调用dao层的方法
+	public void userService() throws Exception
 	{
-		
+		if(!this.isHasError())
+		{
+			JSONObject responseData = new JSONObject(this.getResponseStr());
+			JSONObject user = responseData.getJSONObject("User");
+			
+			UserFactory userDao = new UserFactory();
+			userDao.create(user);
+		}
 	}
-	public String getErrorDesc() {
+	
+	//some set/get methods
+	public String getErrorDesc() 
+	{
 		return errorDesc;
 	}
-	public void setErrorDesc(String errorDesc) {
+	public void setErrorDesc(String errorDesc) 
+	{
 		this.errorDesc = errorDesc;
 	}
-	public boolean isHasError() {
+	public boolean isHasError() 
+	{
 		return hasError;
 	}
-	public void setHasError(boolean hasError) {
+	public void setHasError(boolean hasError) 
+	{
 		this.hasError = hasError;
 	}
-	public int getResponseStatusCode() {
+	public int getResponseStatusCode() 
+	{
 		return responseStatusCode;
 	}
-	public void setResponseStatusCode(int responseStatusCode) {
+	public void setResponseStatusCode(int responseStatusCode) 
+	{
 		this.responseStatusCode = responseStatusCode;
 	}
-	public boolean isCurrentUserIdRequired() {
+	public boolean isCurrentUserIdRequired() 
+	{
 		return currentUserIdRequired;
 	}
-	public void setCurrentUserIdRequired(boolean currentUserIdRequired) {
+	public void setCurrentUserIdRequired(boolean currentUserIdRequired) 
+	{
 		this.currentUserIdRequired = currentUserIdRequired;
 	}
-	private String getResponseStr() {
+	private String getResponseStr() 
+	{
 		return responseStr;
 	}
-	private void setResponseStr(String responseStr) {
+	private void setResponseStr(String responseStr) 
+	{
 		this.responseStr = responseStr;
 	}
-	public Map<String, String> getData() {
+	public Map<String, String> getData() 
+	{
 		return data;
 	}
-	public void setData(Map<String, String> data) {
+	public void setData(Map<String, String> data) 
+	{
 		this.data = data;
+	}
+	public String getSession() 
+	{
+		return session;
+	}
+	public void setSession(String session) 
+	{
+		this.session = session;
 	}
 }

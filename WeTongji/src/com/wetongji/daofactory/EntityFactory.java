@@ -1,7 +1,7 @@
 /**
  * 
  */
-package co.wetongji.dao;
+package com.wetongji.daofactory;
 
 import org.json.JSONObject;
 
@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * @author hezibo
  *
  */
-public interface EntityDao 
+public interface EntityFactory 
 {
 	public void create(JSONObject jsonObject) throws Exception;
 }

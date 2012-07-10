@@ -20,7 +20,8 @@ import android.widget.TextView;
 
 
 
-public class CustomProgressDialog extends Dialog {
+public class CustomProgressDialog extends Dialog 
+{
     private Context context = null;
     private static CustomProgressDialog customProgressDialog = null;
     

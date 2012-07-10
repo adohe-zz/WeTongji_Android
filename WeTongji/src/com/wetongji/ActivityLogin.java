@@ -65,23 +65,46 @@ public class ActivityLogin extends SherlockActivity {
         @Override
         public void onClick(View view) {
             // TODO Auto-generated method stub
-            switch(view.getId()) {
+            switch(view.getId()) 
+            {
             case R.id.btn_back:
                 finish();
                 startActivity(new Intent(ActivityLogin.this, AppIndex.class));
                 break;
             case R.id.btn_ok:
-                LoginTask task = new LoginTask();
-                task.execute();
-                
-                break;   
-                               
+            	if(ActivityLogin.this.isParameterValid())
+            	{
+            		LoginTask task = new LoginTask();
+            		task.execute();
+            	}
+                break;                
             }
         }
         
     };
     
-    
+    public boolean isParameterValid()
+    {
+    	boolean result = true;
+    	
+    	if(et_username.getText().toString().equals(""))
+    	{
+    		Toast.makeText(getApplicationContext(), "«Î ‰»Î’À∫≈", 
+    				Toast.LENGTH_SHORT).show();
+    		result = false;
+    	}else if(et_password.getText().toString().equals(""))
+    	{
+    		Toast.makeText(getApplicationContext(), "«Î ‰»Î√‹¬Î", 
+    				Toast.LENGTH_SHORT).show();
+    		result = false;
+    	}else if(et_password.getText().toString().length() < 6)
+    	{
+    		Toast.makeText(getApplicationContext(), "«Î ‰»Î÷¡…Ÿ¡˘Œª√‹¬Î", 
+    				Toast.LENGTH_SHORT).show();
+    		result = false;
+    	}
+    	return result;
+    }
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -116,77 +139,79 @@ public class ActivityLogin extends SherlockActivity {
             progressDialog = null;
         }
     }
-    
-    public class LoginTask extends AsyncTask<Integer, String, Integer> {
-
+    public class LoginTask extends AsyncTask<Integer, String, Integer> 
+    {
+    	private WTClient wTClient;
+    	
         /* (non-Javadoc)
          * @see android.os.AsyncTask#doInBackground(Params[])
          */
         @Override
-        protected Integer doInBackground(Integer... arg0) {
+        protected Integer doInBackground(Integer... arg0) 
+        {
             // TODO Auto-generated method stub
-            
-            WTClient wTClient;
             // µ«¬º
-            try {
-                wTClient = WTClient.getInstance();
-                wTClient.login(et_username.getText().toString(),
-                        et_password.getText().toString());
-                
-                if(!wTClient.isHasError()) {
-                    
-                    Intent intent = 
-                            new Intent(getApplicationContext(), ActivityMainViewpager.class);
-                    startActivity(intent);
-                    finish();
-                    
-                    return 0;
-                }
-                
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                return 1;
-            }
-            return 1;
+        	try
+        	{
+        		this.wTClient = WTClient.getInstance();
+        		this.wTClient.login(et_username.getText().toString(), 
+        				et_password.getText().toString());
+        		
+        		if(!this.wTClient.isHasError())
+        		{
+        			Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
+        			startActivity(intent);
+        			finish();
+        			
+        			return 0;
+        		}else
+        		{
+        			return this.wTClient.getResponseStatusCode();
+        		}
+        	}catch(Exception e)
+        	{
+        		e.printStackTrace();
+        		return 1;
+        	}
         }
 
         @Override
-        protected void onCancelled() {
+        protected void onCancelled() 
+        {
             // TODO Auto-generated method stub
             stopProgressDialog();
         }
 
         @Override
-        protected void onPostExecute(Integer result) {
+        protected void onPostExecute(Integer result) 
+        {
             // TODO Auto-generated method stub
-            if(result == 0) {
-                writePreference("exitsAccount", true);
+            if(result == 0) 
+            {
+                writePreference("Session", this.wTClient.getSession());
                 
-                Toast.makeText(getApplicationContext(), R.string.login, Toast.LENGTH_SHORT)
-                    .show();
-            }
-            else {
-                Toast.makeText(getApplicationContext(), "µ«¬º ß∞‹", Toast.LENGTH_SHORT)
-                .show();
+                Toast.makeText(getApplicationContext(), R.string.login, 
+                		Toast.LENGTH_SHORT).show();
+            }else 
+            {
+                Toast.makeText(getApplicationContext(), this.wTClient.getErrorDesc(), 
+                		Toast.LENGTH_SHORT).show();
             }
             stopProgressDialog();
         }
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute() 
+        {
             // TODO Auto-generated method stub
             startProgressDialog();
         }                      
     }
-
-    private void writePreference(String key, Boolean value) {
-        SharedPreferences.Editor editor = 
-                ActivityLogin.this.getSharedPreferences("SettingInfo", MODE_WORLD_WRITEABLE)
-                .edit();
-        
-        editor.putBoolean(key, value);
-        editor.commit();
+    private void writePreference(String key, String value)
+    {
+    	SharedPreferences.Editor editor = ActivityLogin.this.getSharedPreferences("SettingInfo", MODE_WORLD_WRITEABLE)
+    			.edit();
+    	editor.putString(key, value);
+    	editor.commit();
     }
-    
 }

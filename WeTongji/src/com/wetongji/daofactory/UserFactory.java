@@ -1,7 +1,7 @@
 /**
  * 
  */
-package co.wetongji.dao;
+package com.wetongji.daofactory;
 
 import org.json.JSONObject;
 
@@ -14,7 +14,7 @@ import com.wetongji.data.User;
  * @author hezibo
  *
  */
-public class UserDao implements EntityDao 
+public class UserFactory implements EntityFactory 
 {
 	private User user = new User();
 	/* (non-Javadoc)
@@ -47,6 +47,9 @@ public class UserDao implements EntityDao
 		
 		Gson gson = new Gson();
 		User user = gson.fromJson(jsonObject.toString(), User.class);
+		
+		Log.v("name", user.getName());
+		Log.v("Sina", user.getSinaWeibo());
 		this.setUser(user);
 	}
 	public User getUser() {

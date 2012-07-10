@@ -56,10 +56,12 @@ public class AppIndex extends Activity implements OnClickListener{
         SharedPreferences sp = 
                 AppIndex.this.getSharedPreferences("SettingInfo", MODE_WORLD_READABLE);
         
-        if( !sp.getBoolean("exitsAccount", false)) {
+        if(!sp.contains("Session")) 
+        {
             welcomeLayout.setVisibility(View.VISIBLE);
         }
-        else {
+        else 
+        {
             Intent intent = new Intent(AppIndex.this, ActivityMainViewpager.class);
             startActivity(intent);
             finish();
