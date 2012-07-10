@@ -123,13 +123,13 @@ public class User {
 
 
 
-	String getNO() {
+	public String getNO() {
 		return NO;
 	}
 
 
 
-	void setNO(String nO) {
+	public void setNO(String nO) {
 		NO = nO;
 	}
 

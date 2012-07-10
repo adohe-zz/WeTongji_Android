@@ -223,7 +223,7 @@ public class WTClient
 		params.put("Password", password);
 		this.executeRequest();
 		
-		this.userService();
+		//this.userService();
 	}
 	
 	//–ﬁ∏ƒ”√ªß√‹¬Î
@@ -471,11 +471,11 @@ public class WTClient
 	{
 		this.currentUserIdRequired = currentUserIdRequired;
 	}
-	private String getResponseStr() 
+	public String getResponseStr() 
 	{
 		return responseStr;
 	}
-	private void setResponseStr(String responseStr) 
+	public void setResponseStr(String responseStr) 
 	{
 		this.responseStr = responseStr;
 	}

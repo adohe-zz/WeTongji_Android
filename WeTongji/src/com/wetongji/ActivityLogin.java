@@ -1,7 +1,11 @@
 package com.wetongji;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.gson.Gson;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.wetongji.daofactory.UserFactory;
 import com.wetongji.data.DbHelper;
@@ -146,6 +150,21 @@ public class ActivityLogin extends SherlockActivity {
             progressDialog = null;
         }
     }
+    
+    public void createUser(String jsonStr) throws Exception
+    {
+    	JSONObject data = new JSONObject(jsonStr);
+    	JSONObject userStr = data.getJSONObject("User");
+    	
+    	Gson gson = new Gson();
+    	
+    	User user = gson.fromJson(userStr.toString(), User.class);
+    	
+    	dbHelper=new DbHelper(getApplicationContext());
+    	RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
+		userDao.createIfNotExists(user);
+		
+    }
     public class LoginTask extends AsyncTask<Integer, String, Integer> 
     {
     	private WTClient wTClient;
@@ -166,13 +185,14 @@ public class ActivityLogin extends SherlockActivity {
         		
         		if(!this.wTClient.isHasError())
         		{
-        			dbHelper=new DbHelper(getApplicationContext());
+        			/*dbHelper=new DbHelper(getApplicationContext());
         			UserFactory userFactory=new UserFactory();
         			//userFactory.create(jsonObject);
         			//我没找到你要写入数据库的user对应的json啊？？？
         			User user=userFactory.getUser();
         			RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
-        			userDao.createIfNotExists(user);
+        			userDao.createIfNotExists(user);*/
+        			ActivityLogin.this.createUser(this.wTClient.getResponseStr());
         			//在这里添加数据层的部分，entityfactory是个抽象的接口，调用userfactory的getUser（）可以返回user对象
         			Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
         			startActivity(intent);
