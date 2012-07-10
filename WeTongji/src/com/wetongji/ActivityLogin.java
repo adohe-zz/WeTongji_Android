@@ -2,6 +2,10 @@ package com.wetongji;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.wetongji.daofactory.UserFactory;
+import com.wetongji.data.DbHelper;
+import com.wetongji.data.User;
 import com.wetongji.net.WTClient;
 
 import android.content.Intent;
@@ -22,6 +26,7 @@ public class ActivityLogin extends SherlockActivity {
     
     private CustomProgressDialog progressDialog = null;
 
+    private DbHelper dbHelper=null;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -34,6 +39,8 @@ public class ActivityLogin extends SherlockActivity {
         setTitle(getResources().getString(R.string.login));
         
         initWidget();
+        
+        dbHelper=new DbHelper(getApplicationContext());
         
     }
     
@@ -159,7 +166,12 @@ public class ActivityLogin extends SherlockActivity {
         		
         		if(!this.wTClient.isHasError())
         		{
-        			
+        			UserFactory userFactory=new UserFactory();
+        			//userFactory.create(jsonObject);
+        			//我没找到你要写入数据库的user对应的json啊？？？
+        			User user=userFactory.getUser();
+        			RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
+        			userDao.createIfNotExists(user);
         			//在这里添加数据层的部分，entityfactory是个抽象的接口，调用userfactory的getUser（）可以返回user对象
         			Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
         			startActivity(intent);
