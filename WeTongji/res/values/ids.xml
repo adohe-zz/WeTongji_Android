@@ -42,5 +42,6 @@
     <item name="tv_profile_qq" type="id">false</item>
     <item name="tv_profile_sina_weibo" type="id">false</item>
     <item name="img_profile_avatar_upload" type="id">false</item>
+    <item name="btn_login_later" type="id">false</item>
     
 </resources>

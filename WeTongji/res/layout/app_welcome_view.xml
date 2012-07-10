@@ -59,6 +59,13 @@
                     android:layout_height="wrap_content" 
                     android:layout_marginLeft="7.0dip" />
                 
+                <ImageButton 
+                    android:id="@id/btn_login_later" 
+                    android:background="@drawable/btn_welcome_login_later" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginLeft="7.0dip" />
+                
                 <!--  about button
                 <ImageButton android:layout_gravity="top" 
                     android:id="@id/btn_about" 
