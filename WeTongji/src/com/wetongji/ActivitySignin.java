@@ -102,6 +102,7 @@ public class ActivitySignin extends SherlockActivity {
                 {
                     viewflipper.showPrevious();
                     ActivitySignin.this.setTitle(R.string.register_new_account_step2);
+                    btn_next.setText(R.string.next);
 
                 }
                 else {
@@ -116,6 +117,7 @@ public class ActivitySignin extends SherlockActivity {
                     // ÏÂÒ»²½
                     viewflipper.showNext();
                     ActivitySignin.this.setTitle(R.string.register_new_account_step3);
+                    btn_next.setText(R.string.register);
 
                 }
                 else if(viewflipper.indexOfChild(viewflipper.getCurrentView()) == 0) 
