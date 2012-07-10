@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextPaint;
 import android.view.KeyEvent;
@@ -26,6 +27,8 @@ public class ActivitySignin extends SherlockActivity {
     private ViewFlipper viewflipper;
     private Button btn_back, btn_next;
     private EditText rg_name, rg_number, rg_pwd, rg_pwd_con;
+    
+    private CustomProgressDialog progressDialog = null;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,16 +142,8 @@ public class ActivitySignin extends SherlockActivity {
                     // 注册
                 	if(ActivitySignin.this.isParameterValid())
                 	{
-                		WTClient wTClient = WTClient.getInstance();
-                		try 
-                		{
-							wTClient.activeUser(rg_name.getText().toString(), 
-									rg_number.getText().toString(), rg_pwd.getText().toString());
-						} catch (Exception e) 
-						{
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+                		SignInTask task = new SignInTask();
+                		task.execute();
                 	}
                 }
                 break;
@@ -222,4 +217,85 @@ public class ActivitySignin extends SherlockActivity {
     	return result;
     }
 
+    private void startProgressDialog()
+    {
+        
+        if (progressDialog == null){
+    
+            progressDialog = CustomProgressDialog.createDialog(this);
+   
+            progressDialog.setMessage("正在加载中...");
+   
+        }
+              
+        progressDialog.show();
+   
+    }
+    
+    private void stopProgressDialog(){
+        if (progressDialog != null){
+            progressDialog.dismiss();
+            progressDialog = null;
+        }
+    }
+    
+    //添加注册异步任务
+    public class SignInTask extends AsyncTask<Integer, String , Integer>
+    {
+    	private WTClient wTClient;
+		@Override
+		protected Integer doInBackground(Integer... params) 
+		{
+			// TODO Auto-generated method stub
+			wTClient = WTClient.getInstance();
+			
+			try 
+			{
+				wTClient.activeUser(rg_number.getText().toString(), 
+						rg_name.getText().toString(), 
+						rg_pwd.getText().toString());
+				
+				if(!wTClient.isHasError())
+				{
+					
+					Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
+        			startActivity(intent);
+        			finish();
+        			
+        			return 0;
+				}else
+				{
+					return wTClient.getResponseStatusCode();
+				}
+			} catch (Exception e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return 1;
+			}
+		}
+		@Override
+        protected void onCancelled() 
+		{
+			stopProgressDialog();
+		}
+		@Override
+        protected void onPostExecute(Integer result) 
+		{
+			if(result == 0)
+			{	
+				Toast.makeText(getApplicationContext(), R.string.register, 
+                		Toast.LENGTH_SHORT).show();
+			}else
+			{
+				Toast.makeText(getApplicationContext(), this.wTClient.getErrorDesc(), 
+                		Toast.LENGTH_SHORT).show();
+			}
+		}
+		@Override
+	    protected void onPreExecute() 
+		{
+			 startProgressDialog();
+		}
+    }
 }

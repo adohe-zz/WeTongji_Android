@@ -205,7 +205,7 @@ public class ActivityLogin extends SherlockActivity {
             {
                 writePreference("Session", this.wTClient.getSession());
                 
-                Toast.makeText(getApplicationContext(), R.string.login, 
+                Toast.makeText(getApplicationContext(), "µÇÂ½³É¹¦", 
                 		Toast.LENGTH_SHORT).show();
             }else 
             {

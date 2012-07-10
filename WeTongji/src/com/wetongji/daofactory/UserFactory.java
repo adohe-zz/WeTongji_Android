@@ -42,14 +42,16 @@ public class UserFactory implements EntityFactory
 		String year = jsonObject.getString("Year");*/
 		
 		Log.v("User", jsonObject.toString());
-		//Log.v("avatar", avatar);
-		//Log.v("birth", birth);
 		
 		Gson gson = new Gson();
 		User user = gson.fromJson(jsonObject.toString(), User.class);
 		
+		user.setDegree("");
+		user.setNativePlace("");
+		
 		Log.v("name", user.getName());
 		Log.v("Sina", user.getSinaWeibo());
+		
 		this.setUser(user);
 	}
 	public User getUser() {

@@ -5,6 +5,7 @@ import com.j256.ormlite.field.DatabaseField;
 public class User {
 	
 	@DatabaseField(id=true)
+	private
 	String NO;
 	@DatabaseField
 	private
@@ -20,8 +21,10 @@ public class User {
 	@DatabaseField
 	String Major;
 	@DatabaseField
+	private
 	String NativePlace;
 	@DatabaseField
+	private
 	String Degree;
 	@DatabaseField
 	String Gender;
@@ -75,15 +78,15 @@ public class User {
 			String degree, String gender, String year, String birthday,
 			String plan, String sinaWeibo, String qQ, String department,
 			String email) {
-		NO = nO;
+		setNO(nO);
 		setName(name);
 		Avatar = avatar;
 		UID = uID;
 		Phone = phone;
 		DisplayName = displayName;
 		Major = major;
-		NativePlace = nativePlace;
-		Degree = degree;
+		setNativePlace(nativePlace);
+		setDegree(degree);
 		Gender = gender;
 		Year = year;
 		Birthday = birthday;
@@ -116,6 +119,42 @@ public class User {
 
 	public void setSinaWeibo(String sinaWeibo) {
 		SinaWeibo = sinaWeibo;
+	}
+
+
+
+	String getNO() {
+		return NO;
+	}
+
+
+
+	void setNO(String nO) {
+		NO = nO;
+	}
+
+
+
+	public String getNativePlace() {
+		return NativePlace;
+	}
+
+
+
+	public void setNativePlace(String nativePlace) {
+		NativePlace = nativePlace;
+	}
+
+
+
+	public String getDegree() {
+		return Degree;
+	}
+
+
+
+	public void setDegree(String degree) {
+		Degree = degree;
 	}
 
 }
