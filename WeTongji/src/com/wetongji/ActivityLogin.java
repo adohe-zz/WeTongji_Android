@@ -30,6 +30,8 @@ public class ActivityLogin extends SherlockActivity {
     private CustomProgressDialog progressDialog = null;
 
     private DbHelper dbHelper=null;
+    
+    private String mCurrentNO;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -163,6 +165,8 @@ public class ActivityLogin extends SherlockActivity {
     	RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
 		userDao.createIfNotExists(user);
 		
+		mCurrentNO = user.getNO();
+		
     }
     public class LoginTask extends AsyncTask<Integer, String, Integer> 
     {
@@ -184,7 +188,9 @@ public class ActivityLogin extends SherlockActivity {
         		
         		if(!this.wTClient.isHasError())
         		{
-        			ActivityLogin.this.createUser(this.wTClient.getResponseStr());
+        		    ActivityLogin.this.createUser(this.wTClient.getResponseStr());
+        			writePreference("CurrentSchoolNumber", 
+                          ActivityLogin.this.mCurrentNO);
         			
         			Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
         			startActivity(intent);
@@ -217,6 +223,7 @@ public class ActivityLogin extends SherlockActivity {
             {
                 writePreference("Session", this.wTClient.getSession());
                 
+                
                 Toast.makeText(getApplicationContext(), R.string.login_success, 
                 		Toast.LENGTH_SHORT).show();
             }else 
@@ -234,6 +241,7 @@ public class ActivityLogin extends SherlockActivity {
             startProgressDialog();
         }                      
     }
+    
     private void writePreference(String key, String value)
     {
     	SharedPreferences.Editor editor = ActivityLogin.this.getSharedPreferences("SettingInfo", MODE_WORLD_WRITEABLE)
@@ -241,6 +249,7 @@ public class ActivityLogin extends SherlockActivity {
     	editor.putString(key, value);
     	editor.commit();
     }
+
 
 	@Override
 	protected void onDestroy() {

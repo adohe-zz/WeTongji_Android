@@ -147,8 +147,9 @@ public class WTClient
 		String hashStr = hashQueryString(queryStr);
 		String url = APIDomain + "?" + queryStr + "&H=" + hashStr;
 		
-		URI finalURI = new URI(url);
+		Log.v("final", url);
 		
+		URI finalURI = new URI(url);
 		request.setURI(finalURI);
 	}
 	
@@ -208,6 +209,7 @@ public class WTClient
 	//激活用户账号
 	public void activeUser(String num, String name, String password) throws Exception
 	{
+	    name = URLEncoder.encode(name, "UTF-8");
 		params.put("M", "User.Active");
 		params.put("NO", num);
 		params.put("Name", name);
@@ -220,6 +222,8 @@ public class WTClient
 	//验证用户登录
 	public void login(String name, String password) throws Exception
 	{
+	    //name = URLEncoder.encode(name, "UTF-8");
+
 		params.put("M", "User.LogOn");
 		params.put("NO", name);
 		params.put("Password", password);

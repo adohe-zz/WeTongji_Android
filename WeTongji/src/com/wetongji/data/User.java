@@ -12,7 +12,7 @@ public class User {
 	String Name;
 	@DatabaseField
 	String Avatar;
-	@DatabaseField
+    @DatabaseField
 	String UID;
 	@DatabaseField
 	String Phone;
@@ -156,5 +156,148 @@ public class User {
 	public void setDegree(String degree) {
 		Degree = degree;
 	}
+	
+	public String getAvatar() {
+        return Avatar;
+    }
+
+
+
+    public void setAvatar(String avatar) {
+        Avatar = avatar;
+    }
+
+
+
+    public String getUID() {
+        return UID;
+    }
+
+
+
+    public void setUID(String uID) {
+        UID = uID;
+    }
+
+
+
+    public String getPhone() {
+        return Phone;
+    }
+
+
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
+
+
+
+    public String getDisplayName() {
+        return DisplayName;
+    }
+
+
+
+    public void setDisplayName(String displayName) {
+        DisplayName = displayName;
+    }
+
+
+
+    public String getMajor() {
+        return Major;
+    }
+
+
+
+    public void setMajor(String major) {
+        Major = major;
+    }
+
+
+
+    public String getGender() {
+        return Gender;
+    }
+
+
+
+    public void setGender(String gender) {
+        Gender = gender;
+    }
+
+
+
+    public String getYear() {
+        return Year;
+    }
+
+
+
+    public void setYear(String year) {
+        Year = year;
+    }
+
+
+
+    public String getBirthday() {
+        return Birthday;
+    }
+
+
+
+    public void setBirthday(String birthday) {
+        Birthday = birthday;
+    }
+
+
+
+    public String getPlan() {
+        return Plan;
+    }
+
+
+
+    public void setPlan(String plan) {
+        Plan = plan;
+    }
+
+
+
+    public String getQQ() {
+        return QQ;
+    }
+
+
+
+    public void setQQ(String qQ) {
+        QQ = qQ;
+    }
+
+
+
+    public String getDepartment() {
+        return Department;
+    }
+
+
+
+    public void setDepartment(String department) {
+        Department = department;
+    }
+
+
+
+    public String getEmail() {
+        return Email;
+    }
+
+
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
 
 }

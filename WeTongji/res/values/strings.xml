@@ -47,6 +47,7 @@
     <string name="register_success_title">注册成功</string>
     <string name="register_success_message">请登录你的同济大学邮箱查收验证邮件</string>
     <string name="login_success">登陆成功</string>
+    <string name="zhuce">注册</string>
     <string name="input_account_hint">请输入账号</string>
     <string name="input_password_hint_least">请输入至少六位密码</string>
     <string name="input_password_pattern">密码只支持数字，字母和下划线</string>
