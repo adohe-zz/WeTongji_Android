@@ -147,11 +147,8 @@ public class WTClient
 		String hashStr = hashQueryString(queryStr);
 		String url = APIDomain + "?" + queryStr + "&H=" + hashStr;
 		
-		String finalURL = URLEncoder.encode(url, "UTF-8");
+		URI finalURI = new URI(url);
 		
-		Log.v("final", finalURL);
-		
-		URI finalURI = new URI(finalURL);
 		request.setURI(finalURI);
 	}
 	
