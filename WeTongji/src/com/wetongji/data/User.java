@@ -52,53 +52,6 @@ public class User {
 	public User() {
 	}
 
-
-
-	/**
-	 * @param nO
-	 * @param name
-	 * @param avatar
-	 * @param uID
-	 * @param phone
-	 * @param displayName
-	 * @param major
-	 * @param nativePlace
-	 * @param degree
-	 * @param gender
-	 * @param year
-	 * @param birthday
-	 * @param plan
-	 * @param sinaWeibo
-	 * @param qQ
-	 * @param department
-	 * @param email
-	 */
-	User(String nO, String name, String avatar, String uID, String phone,
-			String displayName, String major, String nativePlace,
-			String degree, String gender, String year, String birthday,
-			String plan, String sinaWeibo, String qQ, String department,
-			String email) {
-		setNO(nO);
-		setName(name);
-		Avatar = avatar;
-		UID = uID;
-		Phone = phone;
-		DisplayName = displayName;
-		Major = major;
-		setNativePlace(nativePlace);
-		setDegree(degree);
-		Gender = gender;
-		Year = year;
-		Birthday = birthday;
-		Plan = plan;
-		setSinaWeibo(sinaWeibo);
-		QQ = qQ;
-		Department = department;
-		Email = email;
-	}
-
-
-
 	public String getName() {
 		return Name;
 	}

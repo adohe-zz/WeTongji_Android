@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" 
+    android:background="@android:color/white" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+  	xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@+id/scrollview_content" 
+        android:scrollbars="none" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true" 
+        style="@style/Style_Scrollable">
+        <LinearLayout android:gravity="center" 
+            android:orientation="vertical" 
+            android:id="@+id/layout_content" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" >
+            
+            <!-- 修改社交资料 -->
+             <LinearLayout android:orientation="vertical" 
+                android:id="@+id/profile_layout_acount_info" 
+                android:background="@drawable/btn_edittext_def_focus" 
+                android:layout_width="fill_parent" 
+                android:layout_height="wrap_content"
+                android:layout_marginRight="9.0dp"
+	            android:layout_marginTop="7.0dp"
+	            android:layout_marginLeft="9.0dp"
+	            android:layout_marginBottom="9.0dp" >
+                
+                <TextView android:id="@+id/textview_aocuntinfo_title" 
+                    android:text="@string/social_data" style="@style/Profile_Item_Title" />
+                <RelativeLayout 
+                    android:id="@id/layout_modify_phone"
+                    android:background="@android:color/white" 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="45.0dip">
+                    <TextView 
+                        android:text="@string/telephone" 
+                        style="@style/Profile_Item_Left" />
+                    <EditText android:id="@id/et_profile_telephone" 
+                        android:text="" style="@style/Modify_Profile_Item_Right" />
+                </RelativeLayout>
+                
+                <include layout="@layout/include_divideline" />
+                <RelativeLayout  
+                    android:id="@id/layout_modify_email"
+                    android:background="@android:color/white" 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="45.0dip">
+                    <TextView 
+                        android:text="@string/email" 
+                        style="@style/Profile_Item_Left" />
+                    <EditText android:id="@id/et_profile_email" 
+                        android:text="" 
+                        style="@style/Modify_Profile_Item_Right" />
+                </RelativeLayout>
+                
+                <include layout="@layout/include_divideline" />
+                <RelativeLayout  
+                    android:id="@id/layout_modify_qq"
+                    android:background="@android:color/white" 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="45.0dip">
+                    <TextView 
+                        android:text="@string/qq" 
+                        style="@style/Profile_Item_Left" />
+                    <EditText android:id="@id/et_profile_qq" 
+                        android:text="" 
+                        style="@style/Modify_Profile_Item_Right" />
+                </RelativeLayout>
+                
+                <include layout="@layout/include_divideline" />
+                <RelativeLayout  
+                    android:id="@id/layout_modify_sinaweibo"
+                    android:background="@android:color/white" 
+                    android:layout_width="fill_parent" 
+                    android:layout_height="45.0dip">
+                    <TextView 
+                        android:text="@string/sina_weibo" 
+                        style="@style/Profile_Item_Left" />
+                    <EditText android:id="@id/et_profile_sina_weibo" 
+                        android:text="" 
+                        style="@style/Modify_Profile_Item_Right" />
+                </RelativeLayout>
+            </LinearLayout>
+            
+        </LinearLayout>
+    </ScrollView>   
+</RelativeLayout>

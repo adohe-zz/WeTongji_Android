@@ -259,10 +259,7 @@ public class ActivitySignin extends SherlockActivity {
 				
 				if(!wTClient.isHasError())
 				{
-					Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
-        			startActivity(intent);
-        			finish();
-        			
+
         			return 0;
 				}else
 				{

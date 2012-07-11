@@ -5,27 +5,27 @@ import com.j256.ormlite.field.DatabaseField;
 public class Course {
 	
 	@DatabaseField(id=true)
-	String no;
+	String NO;
 	@DatabaseField
-	int hours;
+	int Hours;
 	@DatabaseField
-	float point;
+	float Point;
 	@DatabaseField
-	String name;
+	String Name;
 	@DatabaseField
-	String teacher;
+	String Teacher;
 	@DatabaseField
-	String weekType;
+	String WeekType;
 	@DatabaseField
-	String weekDay;
+	String WeekDay;
 	@DatabaseField
-	int sectionStart;
+	int SectionStart;
 	@DatabaseField
-	int sectionEnd;
+	int SectionEnd;
 	@DatabaseField
-	String required;
+	String Required;
 	@DatabaseField
-	String location;
+	String Location;
 	
 	
 	
@@ -37,33 +37,137 @@ public class Course {
 
 
 
-	/**
-	 * @param no
-	 * @param hours
-	 * @param point
-	 * @param name
-	 * @param teacher
-	 * @param weekType
-	 * @param weekDay
-	 * @param sectionStart
-	 * @param sectionEnd
-	 * @param required
-	 * @param location
-	 */
-	public Course(String no, int hours, float point, String name, String teacher,
-			String weekType, String weekDay, int sectionStart, int sectionEnd,
-			String required, String location) {
-		this.no = no;
-		this.hours = hours;
-		this.point = point;
-		this.name = name;
-		this.teacher = teacher;
-		this.weekType = weekType;
-		this.weekDay = weekDay;
-		this.sectionStart = sectionStart;
-		this.sectionEnd = sectionEnd;
-		this.required = required;
-		this.location = location;
+	public String getNO() {
+		return NO;
 	}
+
+
+
+	public void setNO(String nO) {
+		NO = nO;
+	}
+
+
+
+	public int getHours() {
+		return Hours;
+	}
+
+
+
+	public void setHours(int hours) {
+		Hours = hours;
+	}
+
+
+
+	public float getPoint() {
+		return Point;
+	}
+
+
+
+	public void setPoint(float point) {
+		Point = point;
+	}
+
+
+
+	public String getName() {
+		return Name;
+	}
+
+
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+
+
+	public String getTeacher() {
+		return Teacher;
+	}
+
+
+
+	public void setTeacher(String teacher) {
+		Teacher = teacher;
+	}
+
+
+
+	public String getWeekType() {
+		return WeekType;
+	}
+
+
+
+	public void setWeekType(String weekType) {
+		WeekType = weekType;
+	}
+
+
+
+	public String getWeekDay() {
+		return WeekDay;
+	}
+
+
+
+	public void setWeekDay(String weekDay) {
+		WeekDay = weekDay;
+	}
+
+
+
+	public int getSectionStart() {
+		return SectionStart;
+	}
+
+
+
+	public void setSectionStart(int sectionStart) {
+		SectionStart = sectionStart;
+	}
+
+
+
+	public int getSectionEnd() {
+		return SectionEnd;
+	}
+
+
+
+	public void setSectionEnd(int sectionEnd) {
+		SectionEnd = sectionEnd;
+	}
+
+
+
+	public String getRequired() {
+		return Required;
+	}
+
+
+
+	public void setRequired(String required) {
+		Required = required;
+	}
+
+
+
+	public String getLocation() {
+		return Location;
+	}
+
+
+
+	public void setLocation(String location) {
+		Location = location;
+	}
+
+
+
 	
 }
