@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -37,7 +38,7 @@ public class ActivityUserProfile extends SherlockActivity {
         super.onCreate(savedInstanceState);
         
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
+        setTitle(R.string.personal_info);
         setContentView(R.layout.app_profile);
         
         readCurrentUser();
@@ -64,7 +65,7 @@ public class ActivityUserProfile extends SherlockActivity {
         }
         if(item.getTitle().equals("Edit")) {
             // ½øÈë±à¼­Ò³Ãæ
-            finish();
+            startActivity(new Intent(this, ActivityModifyProfile.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
