@@ -50,8 +50,6 @@ public class WTClient
 	private boolean hasError;
 	private String errorDesc;
 	private int responseStatusCode;
-	private boolean sessionRequired;
-	private boolean currentUserIdRequired;
 	
 	private String responseStr;
 	private String session;
@@ -70,8 +68,6 @@ public class WTClient
 		request = new HttpGet();
 		post = new HttpPost();
 		setHasError(false);
-		sessionRequired = false;
-		setCurrentUserIdRequired(false);
 		setSession(null);
 		setErrorDesc(null);
 		setResponseStatusCode(0);
@@ -216,7 +212,6 @@ public class WTClient
 		params.put("Password", password);
 		this.executeRequest();
 		
-		//this.userService();
 	}
 	
 	//验证用户登录
@@ -229,22 +224,29 @@ public class WTClient
 		params.put("Password", password);
 		this.executeRequest();
 		
-		//this.userService();
 	}
 	
 	//修改用户密码
-	public void updatePassword(String oldPassword, String newPassword, String session) throws Exception
+	public void updatePassword(String oldPassword, String newPassword, String session, String uid) throws Exception
 	{
 		params.put("M", "User.Update.Password");
 		params.put("Old", oldPassword);
 		params.put("New", newPassword);
 		params.put("S", session);
+		params.put("U", uid);
 		
 		this.executeRequest();
-		
-		//this.userService();
 	}
-	
+	public void resetPasswordWithUserName(String name, String number) throws Exception
+	{
+		name = URLEncoder.encode(name, "UTF-8");
+		
+		params.put("M", "User.Reset.Password");
+		params.put("Name", name);
+		params.put("NO", number);
+		
+		this.executeRequest();
+	}
 	//用户登出
 	public void logout() throws Exception
 	{
@@ -253,22 +255,45 @@ public class WTClient
 	}
 	
 	//修改用户头像
-	public void updateUserAvatar(File imageFile, String session) throws ClientProtocolException, IOException, Exception
+	public void updateUserAvatar(File imageFile, String session, String uid) throws ClientProtocolException, IOException, Exception
 	{
 		params.put("M", "User.Update.Avatar");
 		params.put("S", session);
+		params.put("U", uid);
+		
+		String queryStr = this.queryString();
+		String hashStr = this.hashQueryString(queryStr);
+		params.put("H", hashStr);
 		
 		Set<Map.Entry<String, String>> paramsSet = new HashSet<Map.Entry<String, String>>(params.entrySet());
 		UploadImage(APIDomain, paramsSet, imageFile);
-		httpClient.execute(this.post);
+		
+		HttpResponse response = httpClient.execute(post);
+		
+		switch(response.getStatusLine().getStatusCode())
+		{
+			case 200:
+			{
+				this.requestFinished(response);
+			}
+				break;
+			default:
+			{
+				//出现网络错误
+				this.setHasError(true);
+				this.setResponseStatusCode(response.getStatusLine().getStatusCode());
+				this.setErrorDesc(response.getStatusLine().getReasonPhrase());
+				Log.v("REQUESTFAILED", this.getErrorDesc());
+			}
+		}
 	}
 	
 	//修改用户资料
-	public void updateUser(String phone, String email, String qq, String weibo, String session) throws JSONException, Exception
+	public void updateUser(String phone, String email, String qq, String weibo, String session, String uid) throws JSONException, Exception
 	{
 		params.put("M", "User.Update");
 		params.put("S", session);
-		this.sessionRequired = true;
+		params.put("U", uid);
 		
 		JSONObject json = new JSONObject();
 		
@@ -279,7 +304,8 @@ public class WTClient
 		
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("User", json);
-		System.out.println("josnStr:"+json.toString());
+		
+		Log.v("userJSON", jsonObject.toString());
 		
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		pairs.add(new BasicNameValuePair("jsonString",jsonObject.toString()));
@@ -290,7 +316,6 @@ public class WTClient
 	public void getUser()
 	{
 		params.put("M", "User.Get");
-		this.sessionRequired = true;
 	}
 	
 	//用来上传图片
@@ -339,7 +364,6 @@ public class WTClient
 	{
 		params.put("M", "Activity.Like");
 		params.put("Id", activityId);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -348,7 +372,6 @@ public class WTClient
 	{
 		params.put("M", "Activity.Schedule");
 		params.put("Id", activityId);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -357,7 +380,6 @@ public class WTClient
 	{
 		params.put("M", "Activity.Favorite");
 		params.put("Id", activityId);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -366,7 +388,6 @@ public class WTClient
 	{
 		params.put("M", "Activity.UnLike");
 		params.put("Id", activityId);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -375,7 +396,6 @@ public class WTClient
 	{
 		params.put("M", "Activity.UnScheduleLike");
 		params.put("Id", activityId);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -384,7 +404,6 @@ public class WTClient
 	{
 		params.put("M", "Activity.UnFavoriteLike");
 		params.put("Id", activityId);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -392,7 +411,6 @@ public class WTClient
 	public void getCourse() throws Exception
 	{
 		params.put("M", "TimeTable.Get");
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -401,7 +419,6 @@ public class WTClient
 	{
 		params.put("M", "Course.Like");
 		params.put("Id", courseId);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -410,7 +427,6 @@ public class WTClient
 	{
 		params.put("M", "Course.UnLike");
 		params.put("Id", courseId);
-		this.sessionRequired = true;
 		this.executeRequest();
 	}
 	
@@ -418,8 +434,6 @@ public class WTClient
 	public void getFavoriteList() throws Exception
 	{
 		params.put("M", "Favorite.Get");
-		this.sessionRequired = true;
-		this.setCurrentUserIdRequired(true);
 		this.executeRequest();
 	}
 	
@@ -468,14 +482,6 @@ public class WTClient
 	public void setResponseStatusCode(int responseStatusCode) 
 	{
 		this.responseStatusCode = responseStatusCode;
-	}
-	public boolean isCurrentUserIdRequired() 
-	{
-		return currentUserIdRequired;
-	}
-	public void setCurrentUserIdRequired(boolean currentUserIdRequired) 
-	{
-		this.currentUserIdRequired = currentUserIdRequired;
 	}
 	public String getResponseStr() 
 	{
