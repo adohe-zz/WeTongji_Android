@@ -55,5 +55,7 @@
     <string name="modify_social_data">修改社交资料</string>
     <string name="personal_info">个人资料</string>
     <string name="modify_personal_info">修改个人资料</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
 
 </resources>

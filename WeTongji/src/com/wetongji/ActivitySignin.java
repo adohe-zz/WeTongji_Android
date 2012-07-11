@@ -259,6 +259,7 @@ public class ActivitySignin extends SherlockActivity {
 				
 				if(!wTClient.isHasError())
 				{
+
         			return 0;
 				}else
 				{
