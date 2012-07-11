@@ -30,6 +30,8 @@ public class ActivityLogin extends SherlockActivity {
     private CustomProgressDialog progressDialog = null;
 
     private DbHelper dbHelper=null;
+    
+    private String mCurrentNO;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -149,7 +151,7 @@ public class ActivityLogin extends SherlockActivity {
         }
     }
     
-    public User createUser(String jsonStr) throws Exception
+    public void createUser(String jsonStr) throws Exception
     {
     	JSONObject data = new JSONObject(jsonStr);
     	JSONObject userStr = data.getJSONObject("User");
@@ -163,7 +165,7 @@ public class ActivityLogin extends SherlockActivity {
     	RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
 		userDao.createIfNotExists(user);
 		
-		return user;
+		mCurrentNO = user.getNO();
 		
     }
     public class LoginTask extends AsyncTask<Integer, String, Integer> 
@@ -186,7 +188,9 @@ public class ActivityLogin extends SherlockActivity {
         		
         		if(!this.wTClient.isHasError())
         		{
-        			ActivityLogin.this.createUser(this.wTClient.getResponseStr());
+        		    ActivityLogin.this.createUser(this.wTClient.getResponseStr());
+        			writePreference("CurrentSchoolNumber", 
+                          ActivityLogin.this.mCurrentNO);
         			
         			Intent intent = new Intent(getApplicationContext(), ActivityMainViewpager.class);
         			startActivity(intent);
@@ -219,13 +223,6 @@ public class ActivityLogin extends SherlockActivity {
             {
                 writePreference("Session", this.wTClient.getSession());
                 
-                try {
-                    writePreference("CurrentSchoolNumber", 
-                            ActivityLogin.this.createUser(this.wTClient.getResponseStr()).getNO());
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
                 
                 Toast.makeText(getApplicationContext(), R.string.login_success, 
                 		Toast.LENGTH_SHORT).show();
