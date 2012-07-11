@@ -5,15 +5,15 @@ import com.j256.ormlite.field.DatabaseField;
 public class Channel {
 	
 	@DatabaseField(id=true)
-	int id;
+	int Id;
 	@DatabaseField
-	String title;
+	String Title;
 	@DatabaseField
-	String image;
+	String Image;
 	@DatabaseField
-	int follow;
+	int Follow;
 	@DatabaseField
-	String description;
+	String Description;
 	
 	
 	
@@ -25,19 +25,65 @@ public class Channel {
 
 
 
-	/**
-	 * @param id
-	 * @param title
-	 * @param image
-	 * @param follow
-	 * @param description
-	 */
-	public Channel(int id, String title, String image, int follow, String description) {
-		this.id = id;
-		this.title = title;
-		this.image = image;
-		this.follow = follow;
-		this.description = description;
+	public int getId() {
+		return Id;
 	}
+
+
+
+	public void setId(int id) {
+		Id = id;
+	}
+
+
+
+	public String getTitle() {
+		return Title;
+	}
+
+
+
+	public void setTitle(String title) {
+		Title = title;
+	}
+
+
+
+	public String getImage() {
+		return Image;
+	}
+
+
+
+	public void setImage(String image) {
+		Image = image;
+	}
+
+
+
+	public int getFollow() {
+		return Follow;
+	}
+
+
+
+	public void setFollow(int follow) {
+		Follow = follow;
+	}
+
+
+
+	public String getDescription() {
+		return Description;
+	}
+
+
+
+	public void setDescription(String description) {
+		Description = description;
+	}
+
+
+
 	
 }

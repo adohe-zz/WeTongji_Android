@@ -7,17 +7,17 @@ import com.j256.ormlite.field.DatabaseField;
 public class News {
 	
 	@DatabaseField(id=true)
-	int id;
+	int Id;
 	@DatabaseField
-	String title;
+	String Title;
 	@DatabaseField
-	String context;
+	String Context;
 	@DatabaseField
-	int read;
+	int Read;
 	@DatabaseField
-	String category;
+	String Category;
 	@DatabaseField
-	Date createdAt;
+	Date CreatedAt;
 	
 	
 	
@@ -29,22 +29,78 @@ public class News {
 
 
 
-	/**
-	 * @param id
-	 * @param title
-	 * @param context
-	 * @param read
-	 * @param category
-	 * @param createdAt
-	 */
-	public News(int id, String title, String context, int read, String category,
-			Date createdAt) {
-		this.id = id;
-		this.title = title;
-		this.context = context;
-		this.read = read;
-		this.category = category;
-		this.createdAt = createdAt;
+	public void setId(int id) {
+		Id = id;
 	}
+
+
+
+	public void setTitle(String title) {
+		Title = title;
+	}
+
+
+
+	public void setContext(String context) {
+		Context = context;
+	}
+
+
+
+	public void setRead(int read) {
+		Read = read;
+	}
+
+
+
+	public void setCategory(String category) {
+		Category = category;
+	}
+
+
+
+	public void setCreatedAt(Date createdAt) {
+		CreatedAt = createdAt;
+	}
+
+
+
+	public int getId() {
+		return Id;
+	}
+
+
+
+	public String getTitle() {
+		return Title;
+	}
+
+
+
+	public String getContext() {
+		return Context;
+	}
+
+
+
+	public int getRead() {
+		return Read;
+	}
+
+
+
+	public String getCategory() {
+		return Category;
+	}
+
+
+
+	public Date getCreatedAt() {
+		return CreatedAt;
+	}
+
+
+
+	
 	
 }
