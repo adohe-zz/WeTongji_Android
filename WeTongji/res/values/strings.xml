@@ -52,5 +52,7 @@
     <string name="input_password_hint_least">请输入至少六位密码</string>
     <string name="input_password_pattern">密码只支持数字，字母和下划线</string>
     <string name="repeat_password_hint_again">请重新输入确认密码</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
 
 </resources>
