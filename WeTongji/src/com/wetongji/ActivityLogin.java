@@ -257,7 +257,6 @@ public class ActivityLogin extends SherlockActivity {
 		if(dbHelper!=null){
 			OpenHelperManager.releaseHelper();
 			dbHelper=null;
-			dbHelper=null;
 		}
 	}
 }
