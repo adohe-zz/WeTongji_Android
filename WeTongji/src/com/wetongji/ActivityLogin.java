@@ -136,7 +136,7 @@ public class ActivityLogin extends SherlockActivity {
     
             progressDialog = CustomProgressDialog.createDialog(this);
    
-            progressDialog.setMessage("ÕıÔÚ¼ÓÔØÖĞ...");
+            progressDialog.setMessage("æ­£åœ¨åŠ è½½ä¸­...");
    
         }
               
@@ -160,7 +160,7 @@ public class ActivityLogin extends SherlockActivity {
     	
     	User user = gson.fromJson(userStr.toString(), User.class);
     	
-    	//Ğ´Èëuserµ½Êı¾İ¿â
+    	//å†™å…¥useråˆ°æ•°æ®åº“
     	dbHelper=OpenHelperManager.getHelper(getApplicationContext(), DbHelper.class);
     	RuntimeExceptionDao<User, String> userDao=dbHelper.getUserDao();
 		userDao.createIfNotExists(user);
@@ -179,7 +179,7 @@ public class ActivityLogin extends SherlockActivity {
         protected Integer doInBackground(Integer... arg0) 
         {
             // TODO Auto-generated method stub
-            // µÇÂ¼
+            // ç™»å½•
         	try
         	{
         		this.wTClient = WTClient.getInstance();
@@ -256,6 +256,7 @@ public class ActivityLogin extends SherlockActivity {
 		super.onDestroy();
 		if(dbHelper!=null){
 			OpenHelperManager.releaseHelper();
+			dbHelper=null;
 			dbHelper=null;
 		}
 	}
